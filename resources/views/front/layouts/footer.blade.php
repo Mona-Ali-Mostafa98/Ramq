@@ -3,25 +3,25 @@
     <div class="container">
         <div class="part-slider owl-carousel">
             <div class="item">
-                <img src="images/part.png" alt="">
+                <img src="{{ asset('front/images/part.png') }}" alt="">
             </div>
             <div class="item">
-                <img src="images/part.png" alt="">
+                <img src="{{ asset('front/images/part.png') }}" alt="">
             </div>
             <div class="item">
-                <img src="images/part.png" alt="">
+                <img src="{{ asset('front/images/part.png') }}" alt="">
             </div>
             <div class="item">
-                <img src="images/part.png" alt="">
+                <img src="{{ asset('front/images/part.png') }}" alt="">
             </div>
             <div class="item">
-                <img src="images/part.png" alt="">
+                <img src="{{ asset('front/images/part.png') }}" alt="">
             </div>
             <div class="item">
-                <img src="images/part.png" alt="">
+                <img src="{{ asset('front/images/part.png') }}" alt="">
             </div>
             <div class="item">
-                <img src="images/part.png" alt="">
+                <img src="{{ asset('front/images/part.png') }}" alt="">
             </div>
         </div>
     </div>
@@ -159,18 +159,18 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
+@yield('diffrence');
 <!-- Javascript Files -->
-<script src="js/jquery-2.2.2.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.fancybox.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/aos.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>
-<script src="js/visa-format.js"></script>
+<script src="{{ asset('front/js/jquery-2.2.2.min.js') }}"></script>
+<script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('front/js/jquery.fancybox.min.js') }}"></script>
+<script src="{{ asset('front/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('front/js/aos.js') }}"></script>
+<script src="{{ asset('front/js/jquery.nice-select.min.js') }}"></script>
+<script src="{{ asset('front/js/visa-format.js') }}"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-<script src="js/jquery.counterup.min.js"></script>
-<script src="js/script.js"></script>
+<script src="{{ asset('front/js/jquery.counterup.min.js') }}"></script>
+<script src="{{ asset('front/js/script.js') }}"></script>
 </body>
 
 </html>

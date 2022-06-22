@@ -14,8 +14,8 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('admin/home');
-// });
+Route::get('/', function () {
+    return view('front.index');
+});
 // Route::get('/', [AdminController::class, 'login']);
 // Route::get('/home', [AdminController::class, 'index']);

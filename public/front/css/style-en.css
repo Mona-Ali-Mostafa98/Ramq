@@ -1,0 +1,309 @@
+* {
+    direction: ltr;
+}
+
+.main-head:before {
+    right: 0;
+    left: auto;
+}
+
+.main-head .nav-manu ul li {
+    margin: 0 50px 0 0;
+}
+
+.main-head .h-extra .user-area {
+    margin: 0 0 0 80px;
+}
+
+.main-head .h-extra .user-area .menu-item-has-children,
+.main-head .h-extra .user-area .menu-item-has-children>a {
+    direction: rtl;
+}
+
+.menu-item-has-children>a:after {
+    margin: 0 5px 0 0;
+}
+
+.menu-item-has-children .sub-menu {
+    right: 0;
+    left: auto;
+}
+
+.one .item-box {
+    direction: ltr;
+}
+
+.one .item-box .i-cap {
+    left: 0;
+    right: auto;
+    padding: 0 0 0 8%;
+}
+
+.one .item-box:after {
+    right: 14%;
+    left: auto;
+}
+
+.hero-sec .owl-dots {
+    right: 8%;
+    left: auto;
+}
+
+.btn:after {
+    right: 20px;
+    left: auto;
+}
+
+.btn {
+    padding: 0 50px 0 25px;
+}
+
+.about-s:before {
+    right: 0;
+    left: auto;
+}
+
+.about-s .ab-data {
+    padding: 0 70px 0 0;
+}
+
+.g-head h3:before {
+    left: 0;
+    right: auto;
+}
+
+.g-head h3 {
+    padding: 0 0 0 30px;
+}
+
+.about-s .ab-img .owl-dots {
+    right: 0;
+    left: auto;
+    direction: rtl;
+}
+
+.about-s .ab-img:before {
+    left: auto;
+    right: 70px;
+}
+
+.blocks .block .inner .i-img span {
+    left: 20px;
+    right: auto;
+}
+
+.blocks .block .inner .i-img .i-actions {
+    right: 20px;
+    left: auto;
+}
+
+.most .owl-carousel .owl-nav .owl-next,
+.most .owl-carousel .owl-nav .owl-prev {
+    right: 8%;
+    left: auto;
+}
+
+.most .owl-carousel .owl-nav .owl-prev {
+    right: 13.5%;
+    left: auto;
+}
+
+.most .g-body {
+    padding: 0 0 0 6.7%;
+}
+
+.most .m-block:before {
+    left: 0;
+    right: auto;
+    z-index: 1;
+}
+
+.most .m-block .icap-o .overl ul li img {
+    margin: 0 10px 0 0;
+}
+
+.most .m-block .icap-o .overl ul li span {
+    margin: 0 0 0 30px;
+}
+
+.most .m-block .icap-o .i-actions {
+    right: 20px;
+    left: auto;
+}
+
+.most .m-block:after {
+    left: 25px;
+    right: auto;
+}
+
+.most .m-block .icap-o {
+    padding: 45px 20px 45px 45px;
+}
+
+.counters .co-inner .block:after {
+    right: 0;
+    left: auto;
+}
+
+.contact .g-body .inner .form-group .btn {
+    padding: 0 70px 0 30px;
+}
+
+.main-footer .f-top .f-item {
+    padding: 15px;
+}
+
+.main-footer .f-top .f-item h4:after {
+    left: 0;
+    right: auto;
+}
+
+.main-footer .f-top .f-item .siteinfo li i {
+    margin: 0 7px 0 0;
+}
+
+.main-footer .f-top .f-item .soclia a {
+    margin: 0 30px 0 0;
+}
+
+.float-icons {
+    right: 30px;
+    left: auto;
+}
+
+.search-wrap .form-group .btn {
+    right: 0;
+    left: auto;
+}
+
+.log-wrap .log-form .nav-tabs li:after {
+    right: 0;
+    left: auto;
+}
+
+.log-wrap .log-form .tab-pane .form-group {
+    padding: 0 15px;
+}
+
+.log-wrap .log-form .tab-pane .form-group .show-pass {
+    right: 30px;
+    left: auto;
+}
+
+.log-wrap .log-form .tab-pane .form-group label {
+    margin: 0 30px 0 0;
+}
+
+.log-wrap .log-form .tab-pane .form-group label span:before {
+    margin: 0 10px 0 0;
+}
+
+.log-wrap .log-form .tab-pane .form-group .form-control:after {
+    right: 15px;
+    left: auto;
+}
+
+.profile-wrap .prof-sidebar ul li a:before {
+    left: 0;
+    right: auto;
+}
+
+.profile-wrap .prof-content {
+    padding: 0 0 0 20px;
+}
+
+.profile-wrap .p-head h4:before {
+    left: -15px;
+    right: auto;
+}
+
+.profile-wrap .pers-wrap .form-group .show-pass {
+    right: 30px;
+    left: auto;
+}
+
+.profile-wrap .pers-wrap .form-group {
+    padding: 0 15px;
+}
+
+.profile-wrap .pers-wrap .form-group .place-icon {
+    left: 30px;
+    right: auto;
+}
+
+.profile-wrap .pers-wrap .form-group .iti+.place-icon {
+    right: 30px;
+    left: auto;
+}
+
+.profile-wrap .pers-wrap .form-group .nice-select:after {
+    right: 15px;
+    left: auto;
+}
+
+.contact-wrap .cop-head h4:before,
+.contact-wrap .conto-data ul li i {
+    left: 0;
+    right: auto;
+}
+
+.conto-form,
+.conto-data {
+    padding: 0 15px;
+}
+
+.contact-wrap .conto-data ul li {
+    padding: 0 0 0 40px;
+}
+
+.single-sidebar,
+.single-box {
+    padding: 0 15px;
+}
+
+.s-widget h4:before,
+.s-widget .s-inner ul li i,
+.single-wrap .post-data h4:before,
+.single-dimension .dim-head h3:before {
+    left: 0;
+    right: auto;
+}
+
+.s-widget .s-inner ul li {
+    padding: 0 0 0 40px;
+}
+
+.s-widget .s-inner .s-btns a {
+    margin: 0 10px 0 0;
+}
+
+.single-dimension .dim-body {
+    padding: 0 30px 0 0;
+}
+
+.single-dimension .form-group .form-control:after {
+    right: 15px;
+    left: auto;
+}
+
+.single-dimension .form-group {
+    padding: 15px;
+}
+
+.checkout-sidebar {
+    padding: 0 15px;
+}
+
+.w-widget:before {
+    left: 0;
+    right: auto;
+}
+
+.w-widget .form-group .btn {
+    right: 0;
+    left: auto;
+}
+
+.profile-wrap .pers-wrap .form-group.confirm label span:before {
+    margin: 0 10px 0 0;
+}

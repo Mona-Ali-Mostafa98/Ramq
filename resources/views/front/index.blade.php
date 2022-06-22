@@ -1,11 +1,11 @@
-<div class="overlay-s"></div>
-<main class="main-content col-xs-12">
+@extends('front.layout')
+@section('content')
     <!-- Start slider -->
     <div class="hero-sec col-xs-12">
         <div class="slider">
             <div class="one owl-carousel">
                 <div class="item-box">
-                    <img src="images/hero.jpg" alt="">
+                    <img src="{{ asset('front/images/hero.jpg') }}" alt="">
                     <div class="i-cap">
                         <h3>مسكن أطلال - دورين</h3>
                         <p> مسكن أطلال يتميز بالمرونة العالية في عدد الوحدات والتمدد مستقبلا ، كما يمكن عمله على
@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="item-box">
-                    <img src="images/hero2.jpg" alt="">
+                    <img src="{{ asset('front/images/hero2.jpg') }}" alt="">
                     <div class="i-cap">
                         <h3>مسكن أطلال - دورين</h3>
                         <p> مسكن أطلال يتميز بالمرونة العالية في عدد الوحدات والتمدد مستقبلا ، كما يمكن عمله على
@@ -31,10 +31,10 @@
         <div class="slider-two">
             <div class="two owl-carousel">
                 <div class="item active">
-                    <img src="images/hero.jpg" alt="">
+                    <img src="{{ asset('front/images/hero.jpg') }}" alt="">
                 </div>
                 <div class="item">
-                    <img src="images/hero2.jpg" alt="">
+                    <img src="{{ asset('front/images/hero2.jpg') }}" alt="">
                 </div>
             </div>
         </div>
@@ -48,13 +48,13 @@
                 <div class="ab-img col-md-6 col-xs-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                     <div class="ab-slider owl-carousel">
                         <div class="item">
-                            <img src="images/2.jpg" alt="">
+                            <img src="{{ asset('front/images/2.jpg') }}" alt="">
                         </div>
                         <div class="item">
-                            <img src="images/hero2.jpg" alt="">
+                            <img src="{{ asset('front/images/hero2.jpg') }}" alt="">
                         </div>
                         <div class="item">
-                            <img src="images/hero.jpg" alt="">
+                            <img src="{{ asset('front/images/hero.jpg') }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -70,8 +70,8 @@
                         تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على
                         وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع.
                     </p>
-                    <a href="#" class="btn" data-aos="fade-up" data-aos-duration="1000"
-                        data-aos-delay="600">تعرف علينا</a>
+                    <a href="#" class="btn" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">تعرف
+                        علينا</a>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@
                         data-aos-delay="200">
                         <div class="inner">
                             <div class="i-img">
-                                <img src="images/hero.jpg" alt="">
+                                <img src="{{ asset('front/images/hero.jpg') }}" alt="">
                                 <span>‏8.118.6 ر.س</span>
                                 <div class="i-actions">
                                     <a href="#">
@@ -103,17 +103,17 @@
                                 <div class="i-extra">
                                     <ul>
                                         <li>
-                                            <img src="images/ic1.png" alt="">
+                                            <img src="{{ asset('front/images/ic1.png') }}" alt="">
                                             <p>عدد الادوار</p>
                                             <span>2</span>
                                         </li>
                                         <li>
-                                            <img src="images/ic2.png" alt="">
+                                            <img src="{{ asset('front/images/ic2.png') }}" alt="">
                                             <p>عدد الغرف</p>
                                             <span>8</span>
                                         </li>
                                         <li>
-                                            <img src="images/ic3.png" alt="">
+                                            <img src="{{ asset('front/images/ic3.png') }}" alt="">
                                             <p>مساحة الارض</p>
                                             <span>500 م2</span>
                                         </li>
@@ -128,7 +128,7 @@
                         data-aos-delay="400">
                         <div class="inner">
                             <div class="i-img">
-                                <img src="images/hero.jpg" alt="">
+                                <img src="{{ asset('front/images/hero.jpg') }}" alt="">
                                 <span>‏8.118.6 ر.س</span>
                                 <div class="i-actions">
                                     <a href="#">
@@ -144,17 +144,17 @@
                                 <div class="i-extra">
                                     <ul>
                                         <li>
-                                            <img src="images/ic1.png" alt="">
+                                            <img src="{{ asset('front/images/ic1.png') }}" alt="">
                                             <p>عدد الادوار</p>
                                             <span>2</span>
                                         </li>
                                         <li>
-                                            <img src="images/ic2.png" alt="">
+                                            <img src="{{ asset('front/images/ic2.png') }}" alt="">
                                             <p>عدد الغرف</p>
                                             <span>8</span>
                                         </li>
                                         <li>
-                                            <img src="images/ic3.png" alt="">
+                                            <img src="{{ asset('front/images/ic3.png') }}" alt="">
                                             <p>مساحة الارض</p>
                                             <span>500 م2</span>
                                         </li>
@@ -169,7 +169,7 @@
                         data-aos-delay="600">
                         <div class="inner">
                             <div class="i-img">
-                                <img src="images/hero.jpg" alt="">
+                                <img src="{{ asset('front/images/hero.jpg') }}" alt="">
                                 <span>‏8.118.6 ر.س</span>
                                 <div class="i-actions">
                                     <a href="#">
@@ -185,17 +185,17 @@
                                 <div class="i-extra">
                                     <ul>
                                         <li>
-                                            <img src="images/ic1.png" alt="">
+                                            <img src="{{ asset('front/images/ic1.png') }}" alt="">
                                             <p>عدد الادوار</p>
                                             <span>2</span>
                                         </li>
                                         <li>
-                                            <img src="images/ic2.png" alt="">
+                                            <img src="{{ asset('front/images/ic2.png') }}" alt="">
                                             <p>عدد الغرف</p>
                                             <span>8</span>
                                         </li>
                                         <li>
-                                            <img src="images/ic3.png" alt="">
+                                            <img src="{{ asset('front/images/ic3.png') }}" alt="">
                                             <p>مساحة الارض</p>
                                             <span>500 م2</span>
                                         </li>
@@ -210,7 +210,7 @@
                         data-aos-delay="200">
                         <div class="inner">
                             <div class="i-img">
-                                <img src="images/hero.jpg" alt="">
+                                <img src="{{ asset('front/images/hero.jpg') }}" alt="">
                                 <span>‏8.118.6 ر.س</span>
                                 <div class="i-actions">
                                     <a href="#">
@@ -226,17 +226,17 @@
                                 <div class="i-extra">
                                     <ul>
                                         <li>
-                                            <img src="images/ic1.png" alt="">
+                                            <img src="{{ asset('front/images/ic1.png') }}" alt="">
                                             <p>عدد الادوار</p>
                                             <span>2</span>
                                         </li>
                                         <li>
-                                            <img src="images/ic2.png" alt="">
+                                            <img src="{{ asset('front/images/ic2.png') }}" alt="">
                                             <p>عدد الغرف</p>
                                             <span>8</span>
                                         </li>
                                         <li>
-                                            <img src="images/ic3.png" alt="">
+                                            <img src="{{ asset('front/images/ic3.png') }}" alt="">
                                             <p>مساحة الارض</p>
                                             <span>500 م2</span>
                                         </li>
@@ -251,7 +251,7 @@
                         data-aos-delay="400">
                         <div class="inner">
                             <div class="i-img">
-                                <img src="images/hero.jpg" alt="">
+                                <img src="{{ asset('front/images/hero.jpg') }}" alt="">
                                 <span>‏8.118.6 ر.س</span>
                                 <div class="i-actions">
                                     <a href="#">
@@ -267,17 +267,17 @@
                                 <div class="i-extra">
                                     <ul>
                                         <li>
-                                            <img src="images/ic1.png" alt="">
+                                            <img src="{{ asset('front/images/ic1.png') }}" alt="">
                                             <p>عدد الادوار</p>
                                             <span>2</span>
                                         </li>
                                         <li>
-                                            <img src="images/ic2.png" alt="">
+                                            <img src="{{ asset('front/images/ic2.png') }}" alt="">
                                             <p>عدد الغرف</p>
                                             <span>8</span>
                                         </li>
                                         <li>
-                                            <img src="images/ic3.png" alt="">
+                                            <img src="{{ asset('front/images/ic3.png') }}" alt="">
                                             <p>مساحة الارض</p>
                                             <span>500 م2</span>
                                         </li>
@@ -292,7 +292,7 @@
                         data-aos-delay="600">
                         <div class="inner">
                             <div class="i-img">
-                                <img src="images/hero.jpg" alt="">
+                                <img src="{{ asset('front/images/hero.jpg') }}" alt="">
                                 <span>‏8.118.6 ر.س</span>
                                 <div class="i-actions">
                                     <a href="#">
@@ -308,17 +308,17 @@
                                 <div class="i-extra">
                                     <ul>
                                         <li>
-                                            <img src="images/ic1.png" alt="">
+                                            <img src="{{ asset('front/images/ic1.png') }}" alt="">
                                             <p>عدد الادوار</p>
                                             <span>2</span>
                                         </li>
                                         <li>
-                                            <img src="images/ic2.png" alt="">
+                                            <img src="{{ asset('front/images/ic2.png') }}" alt="">
                                             <p>عدد الغرف</p>
                                             <span>8</span>
                                         </li>
                                         <li>
-                                            <img src="images/ic3.png" alt="">
+                                            <img src="{{ asset('front/images/ic3.png') }}" alt="">
                                             <p>مساحة الارض</p>
                                             <span>500 م2</span>
                                         </li>
@@ -339,7 +339,7 @@
     <div class="vid col-xs-12">
         <div class="container">
             <div class="inner" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                <img src="images/hero2.jpg" alt="">
+                <img src="{{ asset('front/images/hero2.jpg') }}" alt="">
                 <a href="#youtube_url" data-fancybox>
                     <i class="la la-play"></i>
                 </a>
@@ -356,23 +356,23 @@
             <div class="most-slider owl-carousel">
                 <div class="item">
                     <div class="m-block">
-                        <img src="images/hero.jpg" alt="">
+                        <img src="{{ asset('front/images/hero.jpg') }}" alt="">
                         <div class="icap-o">
                             <a href="#" class="title">مضياف + مصعد</a>
                             <div class="overl">
                                 <ul>
                                     <li>
-                                        <img src="images/ic1.png" alt="">
+                                        <img src="{{ asset('front/images/ic1.png') }}" alt="">
                                         عدد الادوار
                                         <span>2</span>
                                     </li>
                                     <li>
-                                        <img src="images/ic2.png" alt="">
+                                        <img src="{{ asset('front/images/ic2.png') }}" alt="">
                                         عدد الغرف
                                         <span>2</span>
                                     </li>
                                     <li>
-                                        <img src="images/ic3.png" alt="">
+                                        <img src="{{ asset('front/images/ic3.png') }}" alt="">
                                         مساحة الارض
                                         <span>500 م2</span>
                                     </li>
@@ -394,23 +394,23 @@
                 </div>
                 <div class="item">
                     <div class="m-block">
-                        <img src="images/hero2.jpg" alt="">
+                        <img src="{{ asset('front/images/hero2.jpg') }}" alt="">
                         <div class="icap-o">
                             <a href="#" class="title">مضياف + مصعد</a>
                             <div class="overl">
                                 <ul>
                                     <li>
-                                        <img src="images/ic1.png" alt="">
+                                        <img src="{{ asset('front/images/ic1.png') }}" alt="">
                                         عدد الادوار
                                         <span>2</span>
                                     </li>
                                     <li>
-                                        <img src="images/ic2.png" alt="">
+                                        <img src="{{ asset('front/images/ic2.png') }}" alt="">
                                         عدد الغرف
                                         <span>2</span>
                                     </li>
                                     <li>
-                                        <img src="images/ic3.png" alt="">
+                                        <img src="{{ asset('front/images/ic3.png') }}" alt="">
                                         مساحة الارض
                                         <span>500 م2</span>
                                     </li>
@@ -432,23 +432,23 @@
                 </div>
                 <div class="item">
                     <div class="m-block">
-                        <img src="images/hero.jpg" alt="">
+                        <img src="{{ asset('front/images/hero.jpg') }}" alt="">
                         <div class="icap-o">
                             <a href="#" class="title">مضياف + مصعد</a>
                             <div class="overl">
                                 <ul>
                                     <li>
-                                        <img src="images/ic1.png" alt="">
+                                        <img src="{{ asset('front/images/ic1.png') }}" alt="">
                                         عدد الادوار
                                         <span>2</span>
                                     </li>
                                     <li>
-                                        <img src="images/ic2.png" alt="">
+                                        <img src="{{ asset('front/images/ic2.png') }}" alt="">
                                         عدد الغرف
                                         <span>2</span>
                                     </li>
                                     <li>
-                                        <img src="images/ic3.png" alt="">
+                                        <img src="{{ asset('front/images/ic3.png') }}" alt="">
                                         مساحة الارض
                                         <span>500 م2</span>
                                     </li>
@@ -470,23 +470,23 @@
                 </div>
                 <div class="item">
                     <div class="m-block">
-                        <img src="images/hero2.jpg" alt="">
+                        <img src="{{ asset('front/images/hero2.jpg') }}" alt="">
                         <div class="icap-o">
                             <a href="#" class="title">مضياف + مصعد</a>
                             <div class="overl">
                                 <ul>
                                     <li>
-                                        <img src="images/ic1.png" alt="">
+                                        <img src="{{ asset('front/images/ic1.png') }}" alt="">
                                         عدد الادوار
                                         <span>2</span>
                                     </li>
                                     <li>
-                                        <img src="images/ic2.png" alt="">
+                                        <img src="{{ asset('front/images/ic2.png') }}" alt="">
                                         عدد الغرف
                                         <span>2</span>
                                     </li>
                                     <li>
-                                        <img src="images/ic3.png" alt="">
+                                        <img src="{{ asset('front/images/ic3.png') }}" alt="">
                                         مساحة الارض
                                         <span>500 م2</span>
                                     </li>
@@ -508,23 +508,23 @@
                 </div>
                 <div class="item">
                     <div class="m-block">
-                        <img src="images/hero.jpg" alt="">
+                        <img src="{{ asset('front/images/hero.jpg') }}" alt="">
                         <div class="icap-o">
                             <a href="#" class="title">مضياف + مصعد</a>
                             <div class="overl">
                                 <ul>
                                     <li>
-                                        <img src="images/ic1.png" alt="">
+                                        <img src="{{ asset('front/images/ic1.png') }}" alt="">
                                         عدد الادوار
                                         <span>2</span>
                                     </li>
                                     <li>
-                                        <img src="images/ic2.png" alt="">
+                                        <img src="{{ asset('front/images/ic2.png') }}" alt="">
                                         عدد الغرف
                                         <span>2</span>
                                     </li>
                                     <li>
-                                        <img src="images/ic3.png" alt="">
+                                        <img src="{{ asset('front/images/ic3.png') }}" alt="">
                                         مساحة الارض
                                         <span>500 م2</span>
                                     </li>
@@ -546,23 +546,23 @@
                 </div>
                 <div class="item">
                     <div class="m-block">
-                        <img src="images/hero2.jpg" alt="">
+                        <img src="{{ asset('front/images/hero2.jpg') }}" alt="">
                         <div class="icap-o">
                             <a href="#" class="title">مضياف + مصعد</a>
                             <div class="overl">
                                 <ul>
                                     <li>
-                                        <img src="images/ic1.png" alt="">
+                                        <img src="{{ asset('front/images/ic1.png') }}" alt="">
                                         عدد الادوار
                                         <span>2</span>
                                     </li>
                                     <li>
-                                        <img src="images/ic2.png" alt="">
+                                        <img src="{{ asset('front/images/ic2.png') }}" alt="">
                                         عدد الغرف
                                         <span>2</span>
                                     </li>
                                     <li>
-                                        <img src="images/ic3.png" alt="">
+                                        <img src="{{ asset('front/images/ic3.png') }}" alt="">
                                         مساحة الارض
                                         <span>500 م2</span>
                                     </li>
@@ -587,7 +587,7 @@
     </div>
     <div class="counters col-xs-12">
         <div class="container">
-            <div class="co-inner" style="background-image: url(images/hero.jpg);">
+            <div class="co-inner" style="background-image: url({{ asset('front/images/hero.jpg') }});">
                 <div class="block col-md-3 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-duration="1000"
                     data-aos-delay="200">
                     <div class="inner">
@@ -625,7 +625,7 @@
                 <h3>تواصـل معنـا</h3>
             </div>
         </div>
-        <div class="g-body col-xs-12" style="background-image: url(images/hero2.jpg);">
+        <div class="g-body col-xs-12" style="background-image: url({{ asset('front/images/hero.jpg') }});">
             <div class="container">
                 <form action="#" method="GET">
                     <div class="inner col-xs-12">
@@ -658,3 +658,4 @@
             </div>
         </div>
     </div>
+@endsection

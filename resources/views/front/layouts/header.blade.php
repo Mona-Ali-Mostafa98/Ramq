@@ -18,12 +18,12 @@
     <!-- Css Files -->
     <link rel="stylesheet"
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link href="css/style.css" rel="stylesheet" />
-    <link href="css/bootstrap-rtl.min.css" rel="stylesheet" />
-    <link href="css/style-res.css" rel="stylesheet" />
-    <!-- <link href="css/style-en.css" rel="stylesheet"> -->
+    <link href="{{ asset('front/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('front/css/bootstrap-rtl.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('front/css/style-res.css') }}" rel="stylesheet" />
+    <!-- <link href="{{ asset('front/css/style-en.css') }}" rel="stylesheet"> -->
     <!-- lavicons -->
-    <link rel="shortcut icon" href="images/logo.png" />
+    <link rel="shortcut icon" href="{{ asset('front/images/logo.png') }}" />
 </head>
 
 <body>
@@ -37,7 +37,7 @@
             <div class="container">
                 <div class="logo">
                     <a href="#">
-                        <img src="images/logo.png" alt="">
+                        <img src="{{ asset('front/images/logo.png') }}" alt="">
                     </a>
                 </div>
                 <div class="nav-manu">
@@ -84,3 +84,5 @@
                 </div>
             </div>
         </header>
+        <div class="overlay-s"></div>
+        <main class="main-content col-xs-12">
