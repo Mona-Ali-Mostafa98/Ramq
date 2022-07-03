@@ -2,27 +2,12 @@
 <div class="partners col-xs-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
     <div class="container">
         <div class="part-slider owl-carousel">
-            <div class="item">
-                <img src="{{ asset('front/images/part.png') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('front/images/part.png') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('front/images/part.png') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('front/images/part.png') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('front/images/part.png') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('front/images/part.png') }}" alt="">
-            </div>
-            <div class="item">
-                <img src="{{ asset('front/images/part.png') }}" alt="">
-            </div>
+            @foreach ($partners as $partner)
+                <div class="item">
+                    <img src="{{ asset('images/partners/' . $partner->image) }}" alt="">
+                </div>
+            @endforeach
+
         </div>
     </div>
 </div>
@@ -35,28 +20,24 @@
             <div class="row">
                 <div class="f-item col-md-4 col-xs-12">
                     <h4>نبذة عنا</h4>
-                    <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى،
-                        حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                        التطبيق.
-                        إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص
-                        لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث
-                        يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع.
-                    </p>
+                    @foreach ($settings as $setting)
+                        <p> {{ $setting->description }}</p>
+                    @endforeach
                 </div>
                 <div class="f-item col-md-2 col-xs-12">
                     <h4>اهم الروابط</h4>
                     <ul class="sitemap">
                         <li>
-                            <a href="#">الرئيسية</a>
+                            <a href="{{ route('front.index') }}">الرئيسية</a>
                         </li>
                         <li>
-                            <a href="#">من نحن</a>
+                            <a href="{{ route('front.about-us.index') }}">من نحن</a>
                         </li>
                         <li>
                             <a href="#">متجر التصاميم</a>
                         </li>
                         <li>
-                            <a href="#">تواصل معنا</a>
+                            <a href="{{ route('front.contact-us.create') }}">تواصل معنا</a>
                         </li>
                     </ul>
                 </div>
@@ -66,23 +47,29 @@
                         <li>
                             <i class="la la-crosshairs"></i>
                             العنوان
-                            <p>
-                                <a href="#">‏17 شارع جدة - المملكة العربية السعودية</a>
-                            </p>
+                            @foreach ($settings as $setting)
+                                <p>
+                                    <a href="#">‏ {{ $setting->address }}</a>
+                                </p>
+                            @endforeach
+
                         </li>
                         <li>
                             <i class="la la-envelope"></i>
                             البريد الالكترونى
-                            <p>
-                                <a href="mailto:companymaimail@gmail.com">companymaimail@gmail.com</a>
-                            </p>
+                            @foreach ($settings as $setting)
+                                <p>
+                                    <a href="mailto:companymaimail@gmail.com">{{ $setting->email }}</a>
+                                </p>
+                            @endforeach
                         </li>
                         <li>
                             <i class="las la-crosshairs"></i>
                             الهاتف
                             <p>
-                                <a href="tel:0548596523">0548596523</a> -
-                                <a href="tel:055698547123">055698547123</a>
+                                @foreach ($settingPhones as $setting)
+                                    <a href="tel:0548596523">{{ $setting->phone }}</a> -
+                                @endforeach
                             </p>
                         </li>
                     </ul>
@@ -107,12 +94,17 @@
                         <li>
                             <i class="la la-file-invoice"></i>
                             رقم السجل التجارى
-                            <p>12345678912345</p>
+                            @foreach ($settings as $setting)
+                                <p>{{ $setting->commercial_registration_no }}</p>
+                            @endforeach
+
                         </li>
                         <li>
                             <i class="la la-file-invoice"></i>
                             الرقم الضريبى
-                            <p>310543829100003</p>
+                            @foreach ($settings as $setting)
+                                <p>{{ $setting->tax_number }}</p>
+                            @endforeach
                         </li>
                     </ul>
                 </div>

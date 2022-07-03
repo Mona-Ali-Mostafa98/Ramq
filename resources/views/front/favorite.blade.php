@@ -8,7 +8,7 @@
                 <h3>حسابي</h3>
                 <ul>
                     <li>
-                        <a href="#">الرئيسية</a>
+                        <a href="{{ route('front.index') }}">الرئيسية</a>
                     </li>
                     <li>المفضلة</li>
                 </ul>

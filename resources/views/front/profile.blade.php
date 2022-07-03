@@ -6,7 +6,7 @@
             <h3>حسابي</h3>
             <ul>
                 <li>
-                    <a href="#">الرئيسية</a>
+                    <a href="{{ route('front.index') }}">الرئيسية</a>
                 </li>
                 <li>الملف الشخصي</li>
             </ul>
@@ -17,7 +17,7 @@
             <div class="prof-sidebar col-md-3 col-xs-12">
                 <ul>
                     <li class="active">
-                        <a href="#">الملف الشخصي</a>
+                        <a href="{{ route('front.profile') }}">الملف الشخصي</a>
                     </li>
                     <li>
                         <a href="#">المفضلة</a>
@@ -26,7 +26,7 @@
                         <a href="#">الرقم السرى</a>
                     </li>
                     <li>
-                        <a href="#">تسجيل الخروج</a>
+                        <a href="{{ route('front.logout') }}">تسجيل الخروج</a>
                     </li>
                 </ul>
             </div>
@@ -37,54 +37,63 @@
                 </div>
                 <div class="pers-wrap col-xs-12">
                     <div class="prev-form col-xs-12">
+                        @foreach ($users as $user)
+                        @endforeach
                         <ul>
-                            <li>mohamed ibrahim mohamed ali : الاسم </li>
-                            <li>Mohamedibrahim@gmail.com : البريد الالكترونى </li>
-                            <li>01212455157 : رقم الجوال </li>
-                            <li>الرياض : المدينة </li>
-                            <li>الحى : اسم الحى يكتب هنا</li>
+                            <li>{{ $user->name }} : الاسم </li>
+                            <li>{{ $user->email }} : البريد الالكترونى </li>
+                            <li>{{ $user->phone }} : رقم الجوال </li>
+                            <li>{{ $user->city }}: المدينه </li>
+                            <li>{{ $user->state }}: الحى</li>
                         </ul>
                     </div>
                     <div class="edit-form col-xs-12" style="display: none;">
                         <div class="row">
-                            <div class="form-group col-md-12 col-xs-12">
-                                <h4> <i>*</i>الاسم الكامل</h4>
-                                <input type="text" class="form-control" required>
-                                <i class="la la-user place-icon"></i>
-                            </div>
-                            <div class="form-group col-md-6 col-xs-12">
-                                <h4>البريد الالكترونى</h4>
-                                <input type="email" class="form-control">
-                                <i class="la la-envelope place-icon"></i>
-                            </div>
-                            <div class="form-group col-md-6 col-xs-12">
-                                <h4>رقم الجوال</h4>
-                                <input type="text" class="form-control" id="phone">
-                                <i class="la la-phone place-icon"></i>
-                            </div>
-                            <div class="form-group col-md-6 col-xs-12">
-                                <h4>المدينة</h4>
-                                <select class="form-control nice-select">
-                                    <option>اختار المدينة</option>
-                                    <option>اختار المدينة</option>
-                                    <option>اختار المدينة</option>
-                                    <option>اختار المدينة</option>
-                                </select>
-                                <i class="la la-map-marker place-icon"></i>
-                            </div>
-                            <div class="form-group col-md-6 col-xs-12">
-                                <h4>الحى</h4>
-                                <select class="form-control nice-select">
-                                    <option>اختار الحى</option>
-                                    <option>اختار الحى</option>
-                                    <option>اختار الحى</option>
-                                    <option>اختار الحى</option>
-                                </select>
-                                <i class="la la-map-marker place-icon"></i>
-                            </div>
-                            <div class="form-group col-md-12 col-xs-12">
-                                <button type="submit" class="btn">حفظ</button>
-                            </div>
+                            @include('admin.layouts.errors')
+
+                            <form method="POST" action="{{ route('front.users.update', $user->id) }}">
+                                @csrf
+                                @method ('put')
+                                <div class="form-group col-md-12 col-xs-12">
+                                    <h4> <i>*</i>الاسم الكامل</h4>
+                                    <input name="name" type="text" class="form-control" required
+                                        value="{{ $user->name }}">
+                                    <i class="la la-user
+                                        place-icon"></i>
+                                </div>
+                                <div class="form-group col-md-6 col-xs-12">
+                                    <h4>البريد الالكترونى</h4>
+                                    <input name="email" type="email" class="form-control" value="{{ $user->email }}">
+                                    <i class="la
+                                        la-envelope place-icon"></i>
+                                </div>
+                                <div class="form-group col-md-6 col-xs-12">
+                                    <h4>رقم الجوال</h4>
+                                    <input name="phone" type="text" class="form-control" id="phone"
+                                        value="{{ $user->phone }}">
+                                    <i class="la la-phone
+                                        place-icon"></i>
+                                </div>
+                                <div class="form-group
+                                        col-md-6 col-xs-12">
+                                    <h4>المدينة</h4>
+                                    <input name="city" type="text" class="form-control" id="phone"
+                                        value="{{ $user->city }}">
+                                    <i class="la
+                                        la-map-marker place-icon"></i>
+                                </div>
+                                <div class="form-group col-md-6 col-xs-12">
+                                    <h4>الحى</h4>
+                                    <input name="state" type="text" class="form-control" id="phone"
+                                        value="{{ $user->state }}">
+                                    <i class="la
+                                        la-map-marker place-icon"></i>
+                                </div>
+                                <div class="form-group col-md-12 col-xs-12">
+                                    <button type="submit" class="btn">حفظ</button>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
                 </div>

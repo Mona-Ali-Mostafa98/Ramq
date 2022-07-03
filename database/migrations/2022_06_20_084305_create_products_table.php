@@ -26,6 +26,7 @@ return new class extends Migration
             $table->text('design_details');
             $table->text('design_book');
             $table->text('notes');
+            $table->enum('status', ['show', 'hide']);
             $table->timestamps();
         });
     }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text("image");
             $table->string("title");
             $table->text('description');
+            $table->enum('status', ['show', 'hide'])->default('show');
             $table->timestamps();
         });
     }

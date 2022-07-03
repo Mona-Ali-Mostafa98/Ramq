@@ -3,10 +3,8 @@
     <div class="breads hero-breads col-xs-12">
         <img src="images/hero.jpg" alt="">
         <div class="container">
-            <h3>مسكن أطلال - دورين</h3>
-            <p> مسكن أطلال يتميز بالمرونة العالية في عدد الوحدات والتمدد مستقبلا ، كما يمكن عمله على دور أودورين أو ثلاثة
-                أدوار كوحدات منفصلة . بالإضافة لإمكانية عمل وحدتين ( وحدة في الدور الأرضي والوحدة الثانية دور للعائلة مع نصف
-                دور للضيافة في السطح ) مع إمكانية عمل ثلاثة غرف مستقبلا .لتصبح وحدة ثالثة</p>
+            <h3>{{ $product->title }} </h3>
+            <p> {{ $product->description }} </p>
             <div class="row">
                 <div class="block col-md-3 col-sm-6 col-xs-6">
                     <div class="inner">
@@ -14,7 +12,7 @@
                             <img src="images/ic1.png" alt="">
                         </div>
                         <h4>عدد الادوار</h4>
-                        <span>2</span>
+                        <span>{{ $product->number_of_floors }}</span>
                     </div>
                 </div>
                 <div class="block col-md-3 col-sm-6 col-xs-6">
@@ -23,7 +21,7 @@
                             <img src="images/ic2.png" alt="">
                         </div>
                         <h4>عدد الغرف</h4>
-                        <span>5</span>
+                        <span>{{ $product->number_of_rooms }}</span>
                     </div>
                 </div>
                 <div class="block col-md-3 col-sm-6 col-xs-6">
@@ -32,7 +30,7 @@
                             <img src="images/ic3.png" alt="">
                         </div>
                         <h4>مساحة الارض</h4>
-                        <span>200 م2</span>
+                        <span>{{ $product->Land_area }} م2</span>
                     </div>
                 </div>
                 <div class="block col-md-3 col-sm-6 col-xs-6">
@@ -41,7 +39,7 @@
                             <img src="images/ic4.png" alt="">
                         </div>
                         <h4>تصميم</h4>
-                        <span>المهندس بدر الدامغ</span>
+                        <span>{{ $product->designed_by }}</span>
                     </div>
                 </div>
             </div>
@@ -51,41 +49,26 @@
         <div class="container">
             <div class="row">
                 <div class="single-box col-md-8 col-xs-12">
-                    <div class="post-img col-xs-12">
-                        <img src="images/hero.jpg" alt="">
-                    </div>
-                    <div class="post-img col-xs-12">
-                        <img src="images/hero2.jpg" alt="">
-                    </div>
-                    <div class="post-img col-xs-12">
-                        <img src="images/hero.jpg" alt="">
-                    </div>
+                    @foreach ($product->photes as $key => $value)
+                        <div class="post-img col-xs-12">
+                            <img src="{{ asset('images/products/' . $value->photo) }}" alt="">
+                        </div>
+                    @endforeach
+
                     <div class="post-data col-xs-12">
                         <h4>عن التصميم</h4>
-                        <p>مسكن أطلال يتميز بالمرونة العالية في عدد الوحدات والتمدد مستقبلا ، كما يمكن عمله على دور أو دورين
-                            أو ثلاثة أدوار كوحدات منفصلة . بالإضافة لإمكانية عمل وحدتين ( وحدة في الدور الأرضي والوحدة
-                            الثانية دور للعائلة مع نصف دور للضيافة في السطح ) مع إمكانية عمل ثلاثة غرف مستقبلا لتصبح وحدة
-                            ثالثة .
-                            تم مراعاة توفير متنفس لكل وحدة سواء عبر الأفنية والشرفات المتدرجة على الواجهة البسيطة ، حيث
-                            تستمد قوتها عبر التكوين المتدرج.
-
-                        </p>
+                        <p> {{ $product->design_details }}</p>
                         <h4>تفاصيل المخطط الهندسي</h4>
                         <div class="fl-item">
                             <h5>الدور الارضى</h5>
-                            <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص
-                                العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف
-                                التى يولدها التطبيق.
-                                إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد،
-                                النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه
-                                الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع.
-                                ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد
-                                النص العربى أن يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه
-                                التصميم فيظهر بشكل لا يليق.
+                            <p>
+                                @foreach ($product->informations as $value)
+                                    <span class="card-text"> {{ $value->information }}</span> <br>
+                                @endforeach
                             </p>
-                            <img src="images/3d.jpg" alt="">
+                            {{-- <img src="images/3d.jpg" alt=""> --}}
                         </div>
-                        <div class="fl-item">
+                        {{-- <div class="fl-item">
                             <h5>الدور الأول</h5>
                             <p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص
                                 العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف
@@ -98,7 +81,7 @@
                                 التصميم فيظهر بشكل لا يليق.
                             </p>
                             <img src="images/3d.jpg" alt="">
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="single-sidebar col-md-4 col-xs-12">
@@ -108,23 +91,9 @@
                             <ul>
                                 <li>
                                     <i class="la la-check"></i>
-                                    اسم المخطط : مسكن أطلال - دورين
-                                </li>
-                                <li>
-                                    <i class="la la-check"></i>
-                                    المكتب الهندسى : اسم المكتب يكتب هنا
-                                </li>
-                                <li>
-                                    <i class="la la-check"></i>
-                                    مطبخ :2
-                                </li>
-                                <li>
-                                    <i class="la la-check"></i>
-                                    غرفة معيشة : 5
-                                </li>
-                                <li>
-                                    <i class="la la-check"></i>
-                                    الحد الأدنى للتكلفة : <span>500 ألف ريال</span>
+                                    @foreach ($product->informations as $value)
+                                        <span class="card-text"> {{ $value->information }}</span> <br>
+                                    @endforeach
                                 </li>
                             </ul>
                         </div>

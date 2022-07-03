@@ -10,10 +10,7 @@ class DesignInformation extends Model
     use HasFactory;
     protected $fillable = [
         'product_id',
-        'engineering_office',
-        'kitchen',
-        'living_room',
-        'minimum_cost',
+        'information',
     ];
     public function product()
     {

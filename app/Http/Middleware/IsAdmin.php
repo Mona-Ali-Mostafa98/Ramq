@@ -14,8 +14,12 @@ class IsAdmin
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next , $gaurd = null )
     {
+        if(!auth()->guard($gaurd)->check())
+        {
+            return redirect(route('admin.login'));
+        }
         return $next($request);
     }
 }

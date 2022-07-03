@@ -1,0 +1,11 @@
+=> [34;4mApp\Models\ContactUs[39;24m {#3575
+     [34mfull_name[39m: "[32mMona[39m",
+     [34memail[39m: "[32mmona@gmail.com[39m",
+     [34mphone[39m: "[32m0133369[39m",
+     [34msubject[39m: "[32mnnnn[39m",
+     [34mmessage[39m: "[32mmmm[39m",
+     [34mupdated_at[39m: "[32m2022-06-27 16:29:38[39m",
+     [34mcreated_at[39m: "[32m2022-06-27 16:29:38[39m",
+     [34mid[39m: [35m1[39m,
+   }
+

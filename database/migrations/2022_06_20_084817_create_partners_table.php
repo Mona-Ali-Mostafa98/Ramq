@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
             $table->string("partner_name");
-            $table->text("partner_photo");
+            $table->text("image");
+            $table->enum('status', ['show', 'hide'])->default('show');
             $table->timestamps();
         });
     }

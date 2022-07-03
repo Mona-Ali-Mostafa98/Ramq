@@ -11,12 +11,12 @@ class Product extends Model
     protected $fillable = [
         'title',
         'description',
-        'image',
         'number_of_floors',
         'number_of_rooms',
         'Land_area',
         'price',
         'designed_by',
+        'status',
         'design_details',
         'most_requested',
         'design_book',
@@ -24,17 +24,17 @@ class Product extends Model
     ];
     public function photes()
     {
-    return $this->hasMany(photes_of_product::class);
+    return $this->hasMany(PhotoOfProduct::class);
     }
 
-    public function design_book()
-    {
-    return $this->hasMany(design_book::class);
-    }
+    // public function design_book()
+    // {
+    // return $this->hasMany(design_books::class);
+    // }
 
-    public function design_informations()
+    public function informations()
     {
-    return $this->hasMany(design_informations::class);
+    return $this->hasMany(DesignInformation::class);
     }
 
 

@@ -15,5 +15,6 @@ class PhoneOfSetting extends Model
     public function setting()
     {
         return $this->belongsTo(Setting::class);
+
     }
 }

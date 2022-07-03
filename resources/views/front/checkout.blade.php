@@ -1,12 +1,18 @@
 @extends('front.layout')
 @section('content')
     <div class="breads col-xs-12">
-        <img src="images/hero.jpg" alt="">
+        @foreach ($settings as $setting)
+            @foreach ($setting->photes as $key => $value)
+                <div class="item">
+                    <img src="{{ asset('images/settings/' . $value->photo) }}" alt="">
+                </div>
+            @endforeach
+        @endforeach
         <div class="container">
             <h3>مسكن أطلال - دورين</h3>
             <ul>
                 <li>
-                    <a href="#">الرئيسية</a>
+                    <a href="{{ route('front.index') }}">الرئيسية</a>
                 </li>
                 <li>شراء المنتج</li>
             </ul>

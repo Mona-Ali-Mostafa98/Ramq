@@ -17,4 +17,3 @@ class ContactUs extends Model
         "message"
     ];
 }
-

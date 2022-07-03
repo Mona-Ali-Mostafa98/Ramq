@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->integer('counter');
+            $table->enum('status', ['show', 'hide'])->default('show');
             $table->timestamps();
         });
     }

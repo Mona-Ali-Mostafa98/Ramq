@@ -46,16 +46,16 @@
                     </button>
                     <ul>
                         <li class="active">
-                            <a href="#">الرئيسية</a>
+                            <a href="{{ route('front.index') }}">الرئيسية</a>
                         </li>
                         <li>
-                            <a href="#">من نحن</a>
+                            <a href="{{ route('front.about-us.index') }}">من نحن</a>
                         </li>
                         <li>
-                            <a href="#">متجر التصاميم</a>
+                            <a href="{{ route('front.products.index') }}">متجر التصاميم</a>
                         </li>
                         <li>
-                            <a href="#">تواصل معنا</a>
+                            <a href="{{ route('front.contact-us.create') }}">تواصل معنا</a>
                         </li>
                     </ul>
                 </div>
@@ -70,10 +70,10 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="#">الملف الشخصي</a>
+                                    <a href="{{ route('front.profile') }}">الملف الشخصي</a>
                                 </li>
                                 <li>
-                                    <a href="#">تسجيل خروج</a>
+                                    <a href="{{ route('front.logout') }}">تسجيل خروج</a>
                                 </li>
                             </ul>
                         </li>
