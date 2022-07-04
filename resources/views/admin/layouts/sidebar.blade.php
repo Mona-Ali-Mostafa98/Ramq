@@ -66,12 +66,41 @@
                       </a>
                   </li>
                   <li class="nav-item">
+                      <a href="{{ route('admin.codes.index') }}" class="nav-link">
+                          <p>
+                              Discount Code
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{ route('admin.statistics.index') }}" class="nav-link">
+                          <p>
+                              Statistic
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{ route('admin.cities.index') }}" class="nav-link">
+                          <p>
+                              City
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="{{ route('admin.regions.index') }}" class="nav-link">
+                          <p>
+                              Region
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
                       <a href="{{ route('admin.contact-us.index') }}" class="nav-link">
                           <p>
                               Contact Us
                           </p>
                       </a>
                   </li>
+
               </ul>
           </nav>
           <!-- /.sidebar-menu -->

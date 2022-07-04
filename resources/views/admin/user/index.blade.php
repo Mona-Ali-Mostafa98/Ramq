@@ -3,7 +3,7 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <div class="text-center">
-            <a href="{{ route('admin.users.create') }}" class="mt-4 btn btn-success">Create Slider</a>
+            <a href="{{ route('admin.users.create') }}" class="mt-4 btn btn-success">Create User</a>
         </div>
         <!-- Content Header (Page header) -->
         <section class="content-header">
@@ -53,8 +53,8 @@
                                             <th scope="col">Full Name</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">Phone</th>
-                                            <th scope="col">City</th>
-                                            <th scope="col">State</th>
+                                            {{-- <th scope="col">City</th> --}}
+                                            {{-- <th scope="col">State</th> --}}
                                             <th scope="col">Actions</th>
                                         </tr>
                                     </thead>
@@ -65,8 +65,8 @@
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->email }}</td>
                                                 <td>{{ $user->phone }}</td>
-                                                <td>{{ $user->city }}</td>
-                                                <td>{{ $user->state }}</td>
+                                                {{-- <td>{{ $user->city }}</td> --}}
+                                                {{-- <td>{{ $user->state }}</td> --}}
                                                 <td class="row">
                                                     <a href="{{ route('admin.users.show', $user->id) }}"
                                                         class="col-3 mr-2 btn btn-success">View</a>

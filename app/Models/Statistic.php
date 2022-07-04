@@ -11,5 +11,6 @@ class Statistic extends Model
     protected $fillable = [
         'title',
         'counter',
+        'status'
     ];
 }

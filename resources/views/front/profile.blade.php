@@ -1,7 +1,13 @@
 @extends('front.layout')
 @section('content')
     <div class="breads col-xs-12">
-        <img src="images/hero.jpg" alt="">
+        @foreach ($settings as $setting)
+            @foreach ($setting->photes as $key => $value)
+                <div class="item">
+                    <img src="{{ asset('images/settings/' . $value->photo) }}" alt="">
+                </div>
+            @endforeach
+        @endforeach
         <div class="container">
             <h3>حسابي</h3>
             <ul>
@@ -20,7 +26,7 @@
                         <a href="{{ route('front.profile') }}">الملف الشخصي</a>
                     </li>
                     <li>
-                        <a href="#">المفضلة</a>
+                        <a href="{{ route('front.favorites') }}">المفضلة</a>
                     </li>
                     <li>
                         <a href="#">الرقم السرى</a>

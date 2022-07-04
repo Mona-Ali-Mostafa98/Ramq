@@ -48,13 +48,13 @@ class UserController extends Controller
     }
     public function edit($userId)
     {
-        $user = user::find($userId);
+        $user = User::find($userId);
         return view('admin.user.edit', [
             'user' => $user,
         ]);
     }
 
-    public function update(Request $request,user $user)
+    public function update(Request $request,User $user)
     {
         $request->validate([
             'name' => ['required','string', 'max:255'],
@@ -67,12 +67,14 @@ class UserController extends Controller
         ]);
         $data = $request->all();
         $user->update($data);
+        // dd($user->update($data));
+
         return redirect()->route('admin.users.index');
     }
 
     public function destroy($userId)
     {
-        $user = user::find($userId);
+        $user = User::find($userId);
         $user -> delete();
         return redirect()->route('admin.users.index');
 

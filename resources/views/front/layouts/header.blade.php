@@ -37,7 +37,13 @@
             <div class="container">
                 <div class="logo">
                     <a href="#">
-                        <img src="{{ asset('front/images/logo.png') }}" alt="">
+                        @foreach ($settings as $setting)
+                            @foreach ($setting->photes as $key => $value)
+                                <div class="item">
+                                    <img src="{{ asset('images/settings/' . $value->photo) }}" alt="">
+                                </div>
+                            @endforeach
+                        @endforeach
                     </a>
                 </div>
                 <div class="nav-manu">

@@ -25,12 +25,11 @@ class StatisticController extends Controller
     {
         $data = $request->validate([
             'title' => ['required','string', 'max:255'],
-            'counter'=>'required'
+            'counter'=> ['required' , 'numeric'],
+            'status'=>'required'
+
         ]);
-
-
         Statistic::create($data);
-        /* Store $imageName name in DATABASE from HERE */
         return redirect()->route('admin.statistics.index');
 
     }
@@ -54,24 +53,16 @@ class StatisticController extends Controller
     public function update(Request $request,Statistic $statistic)
     {
         $request->validate([
-            'statistic_name' => ['required','string', 'max:255'],
+            'title' => ['required','string', 'max:255'],
+            'counter'=> ['required' , 'numeric'],
             'status'=>'required'
-        ]);
+
+       ]);
         $data = $request->all();
         // dd($data);
-        if ($image = $request->file('image')) {
-            $destinationPath = 'images/statistics';
-            $imageName = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $imageName);
-            $data['image'] = "$imageName";
-        }else{
-            unset($data['image']);
-        }
-
         $statistic->update($data);
 
-        return redirect()->route('admin.statistics.index')
-                        ->with('success','statistic updated successfully');
+        return redirect()->route('admin.statistics.index');
     }
 
     public function destroy($statisticId)
@@ -79,7 +70,6 @@ class StatisticController extends Controller
         $statistic = Statistic::find($statisticId);
         $statistic -> delete();
         return redirect()->route('admin.statistics.index');
-        // return $statisticId;
 
     }
 

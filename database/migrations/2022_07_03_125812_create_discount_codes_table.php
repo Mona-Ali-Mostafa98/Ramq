@@ -13,16 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cart', function (Blueprint $table) {
+        Schema::create('discount_codes', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
-            $table->string('id_number');
-            $table->string('email');
-            $table->string('phone');
-            $table->text('state');
-            $table->string('city');
-            $table->string('career');
-            $table->string('copy_of_instrument_or_survey_report');
+            $table->string('title');
+            $table->string('discount_code');
+            $table->float('price');
+            $table->enum('discount_type', ['%', 'Rial']);
+
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cart');
+        Schema::dropIfExists('discount_codes');
     }
 };

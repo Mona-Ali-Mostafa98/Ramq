@@ -27,16 +27,17 @@ class Product extends Model
     return $this->hasMany(PhotoOfProduct::class);
     }
 
-    // public function design_book()
-    // {
-    // return $this->hasMany(design_books::class);
-    // }
-
     public function informations()
     {
     return $this->hasMany(DesignInformation::class);
     }
 
+    public function favorite(){
+        return $this->hasMany(Favorite::class);
+     }
 
+    public function cart(){
+        return $this->hasMany(Cart::class);
+     }
 
 }

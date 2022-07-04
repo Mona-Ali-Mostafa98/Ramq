@@ -52,8 +52,8 @@
                                             {{-- <th scope="col">Description</th> --}}
                                             <th scope="col">Image</th>
                                             {{-- <th scope="col">Video</th> --}}
-                                            <th scope="col">Phone</th>
-                                            <th scope="col">Email</th>
+                                            {{-- <th scope="col">Phone</th> --}}
+                                            {{-- <th scope="col">Email</th> --}}
                                             {{-- <th scope="col">Commercial Registration No</th> --}}
                                             {{-- <th scope="col">Tax Number</th> --}}
                                             <th scope="col">Actions</th>
@@ -91,13 +91,13 @@
                                                     <a href="{{ route('admin.settings.edit', $setting->id) }}"
                                                         class="col-2 me-5 btn btn-primary">Edit</a>
 
-                                                    <form class="col-2" method="post"
+                                                    {{-- <form class="col-2" method="post"
                                                         action="{{ route('admin.settings.destroy', $setting->id) }}">
                                                         @csrf
                                                         @method ('delete')
                                                         <button type="submit" class="btn btn-danger "
                                                             onclick="return confirm('Are you sure you to delete this record from Database?')">Delete</button>
-                                                    </form>
+                                                    </form> --}}
                                                 </td>
                                             </tr>
                                         @endforeach

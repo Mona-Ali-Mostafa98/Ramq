@@ -51,7 +51,7 @@
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Title</th>
-                                            <th scope="col">Description</th>
+                                            {{-- <th scope="col">Description</th> --}}
                                             <th scope="col">Image</th>
                                             <th scope="col">Actions</th>
                                         </tr>
@@ -61,7 +61,7 @@
                                             <tr>
                                                 <th scope="row">{{ $slider->id }}</th>
                                                 <td>{{ $slider->title }}</td>
-                                                <td>{{ $slider->description }}</td>
+                                                {{-- <td>{{ $slider->description }}</td> --}}
                                                 <td> <img src="{{ asset('images/sliders/' . $slider->image) }}"
                                                         style="height: 100px; width: 150px;"></td>
                                                 <td class="row">

@@ -98,20 +98,22 @@ class ProductController extends Controller
             'designed_by'=>['required', 'string'],
             'design_details'=>['required' , 'string'],
             'most_requested'=>'required',
-            'design_book'=>'required',
+            // 'design_book'=>'required',
             'notes'=>'required',
             'status'=>'required'
         ]);
         $data = $request->except('information' , 'photo');
 
-        foreach($request->information as $key => $val){
+        if($request->information){
+                foreach($request->information as $key => $val){
 
-            $informations = DesignInformation::where('id',$key+1)->where('product_id', $product->id)->update([
-                'information' => $val,
-        ]);
-                // dd($val);
+                    $informations = DesignInformation::where('id',$key+1)->where('product_id', $product->id)->update([
+                        'information' => $val,
+                ]);
+                        // dd($val);
+            }
+        }
 
-    }
     if ($images = $request->file('image')) {
         foreach($images as $image){
             $destinationPath = 'images/products';

@@ -2,14 +2,19 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\DiscountCodeController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\SocialLinkController;
+use App\Http\Controllers\Admin\StatisticController;
 use App\Http\Controllers\Admin\UserController;
+use App\Models\DiscountCode;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,6 +89,15 @@ Route::put('/admin/users/{user}', [UserController::class, 'update'])->name('admi
 Route::delete('/admin/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy')->middleware('isAdmin:admin');
 
 
+Route::get('/admin/codes', [DiscountCodeController::class, 'index'])->name('admin.codes.index')->middleware('isAdmin:admin');
+Route::get('/admin/codes/create',[DiscountCodeController::class, 'create'])->name('admin.codes.create')->middleware('isAdmin:admin');
+Route::post('/admin/codes',[DiscountCodeController::class, 'store'])->name('admin.codes.store')->middleware('isAdmin:admin');
+Route::get('/admin/codes/{code}', [DiscountCodeController::class, 'show'])->name('admin.codes.show')->middleware('isAdmin:admin');
+Route::get('/admin/codes/{code}/edit', [DiscountCodeController::class, 'edit'])->name('admin.codes.edit')->middleware('isAdmin:admin');
+Route::put('/admin/codes/{code}', [DiscountCodeController::class, 'update'])->name('admin.codes.update')->middleware('isAdmin:admin');
+Route::delete('/admin/codes/{code}', [DiscountCodeController::class, 'destroy'])->name('admin.codes.destroy')->middleware('isAdmin:admin');
+
+
 
 Route::get('/admin/features', [FeatureController::class, 'index'])->name('admin.features.index')->middleware('isAdmin:admin');
 Route::get('/admin/features/create',[FeatureController::class, 'create'])->name('admin.features.create')->middleware('isAdmin:admin');
@@ -92,3 +106,23 @@ Route::get('/admin/features/{feature}', [FeatureController::class, 'show'])->nam
 Route::get('/admin/features/{feature}/edit', [FeatureController::class, 'edit'])->name('admin.features.edit')->middleware('isAdmin:admin');
 Route::put('/admin/features/{feature}', [FeatureController::class, 'update'])->name('admin.features.update')->middleware('isAdmin:admin');
 Route::delete('/admin/features/{feature}', [FeatureController::class, 'destroy'])->name('admin.features.destroy')->middleware('isAdmin:admin');
+
+Route::get('/admin/statistics', [StatisticController::class, 'index'])->name('admin.statistics.index')->middleware('isAdmin:admin');
+Route::get('/admin/statistics/create',[StatisticController::class, 'create'])->name('admin.statistics.create')->middleware('isAdmin:admin');
+Route::post('/admin/statistics',[StatisticController::class, 'store'])->name('admin.statistics.store')->middleware('isAdmin:admin');
+Route::get('/admin/statistics/{statistic}', [StatisticController::class, 'show'])->name('admin.statistics.show')->middleware('isAdmin:admin');
+Route::get('/admin/statistics/{statistic}/edit', [StatisticController::class, 'edit'])->name('admin.statistics.edit')->middleware('isAdmin:admin');
+Route::put('/admin/statistics/{statistic}', [StatisticController::class, 'update'])->name('admin.statistics.update')->middleware('isAdmin:admin');
+Route::delete('/admin/statistics/{statistic}', [StatisticController::class, 'destroy'])->name('admin.statistics.destroy')->middleware('isAdmin:admin');
+
+
+Route::get('/admin/cities', [CityController::class, 'index'])->name('admin.cities.index')->middleware('isAdmin:admin');
+Route::get('/admin/cities/create',[CityController::class, 'create'])->name('admin.cities.create')->middleware('isAdmin:admin');
+Route::post('/admin/cities',[CityController::class, 'store'])->name('admin.cities.store')->middleware('isAdmin:admin');
+Route::delete('/admin/cities/{city}', [CityController::class, 'destroy'])->name('admin.cities.destroy')->middleware('isAdmin:admin');
+
+
+Route::get('/admin/regions', [RegionController::class, 'index'])->name('admin.regions.index')->middleware('isAdmin:admin');
+Route::get('/admin/regions/create',[RegionController::class, 'create'])->name('admin.regions.create')->middleware('isAdmin:admin');
+Route::post('/admin/regions',[RegionController::class, 'store'])->name('admin.regions.store')->middleware('isAdmin:admin');
+Route::delete('/admin/regions/{city}', [RegionController::class, 'destroy'])->name('admin.regions.destroy')->middleware('isAdmin:admin');

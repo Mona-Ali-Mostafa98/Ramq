@@ -1,7 +1,13 @@
 @extends('front.layout')
 @section('content')
     <div class="breads col-xs-12">
-        <img src="images/hero2.jpg" alt="">
+        @foreach ($settings as $setting)
+            @foreach ($setting->photes as $key => $value)
+                <div class="item">
+                    <img src="{{ asset('images/settings/' . $value->photo) }}" alt="">
+                </div>
+            @endforeach
+        @endforeach
         <div class="container">
             <h3>كلمة المرور الجديدة</h3>
             <ul>

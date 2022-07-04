@@ -1,7 +1,13 @@
 @extends('front.layout')
 @section('content')
     <div class="breads hero-breads col-xs-12">
-        <img src="images/hero.jpg" alt="">
+        @foreach ($settings as $setting)
+            @foreach ($setting->photes as $key => $value)
+                <div class="item">
+                    <img src="{{ asset('images/settings/' . $value->photo) }}" alt="">
+                </div>
+            @endforeach
+        @endforeach
         <div class="container">
             <h3>{{ $product->title }} </h3>
             <p> {{ $product->description }} </p>
@@ -243,7 +249,12 @@
                     </div>
                 </div>
                 <div class="dim-btn col-xs-12">
-                    <button type="submit" class="btn">شراء المخطط</button>
+                    <form action="{{ route('front.carts.create') }}" id="contact_form" method="post">
+                        @csrf
+                        <input name="user_id" type="text" value="{{ Auth::user()->id }}" hidden />
+                        <input name="product_id" type="text" value="{{ $product->id }}" hidden />
+                        <button type="submit" class="btn">شراء المخطط</button>
+                    </form>
                 </div>
             </div>
         </div>

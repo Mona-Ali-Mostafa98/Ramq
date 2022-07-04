@@ -84,9 +84,15 @@
                                         <a href="#">
                                             <i class="la la-share"></i>
                                         </a>
-                                        <a href="#" class="fav">
-                                            <i class="la la-heart"></i>
-                                        </a>
+                                        {{-- <form action="{{ route('front.favorites.store') }}" id="contact_form"
+                                            method="POST">
+                                            @csrf
+                                            <input name="user_id" type="text" value="{{ Auth::user()->id }}" hidden />
+                                            <input name="product_id" type="text" value="{{ $product->id }}" hidden />
+                                            <button type="submit" class="fav">
+                                                <i class="la la-heart"></i>
+                                            </button>
+                                        </form> --}}
                                     </div>
                                 </div>
                                 <div class="i-data">
@@ -177,12 +183,21 @@
                                         <h4>‏{{ $product->price }} ر.س</h4>
                                         <a href="#" class="btn btn-border">استعرض</a>
                                         <div class="i-actions">
-                                            <a href="#" class="fav">
-                                                <i class="la la-heart"></i>
-                                            </a>
+
                                             <a href="#">
                                                 <i class="la la-share"></i>
                                             </a>
+                                            {{-- <form action="{{ route('front.favorites.store') }}" id="contact_form"
+                                                method="post">
+                                                {{ csrf_field() }}
+                                                <input name="user_id" type="text" value="{{ Auth::user()->id }}"
+                                                    hidden />
+                                                <input name="product_id" type="text" value="{{ $product->id }}"
+                                                    hidden />
+                                                <button type="submit" class="fav">
+                                                    <i class="la la-heart"></i>
+                                                </button>
+                                            </form> --}}
                                         </div>
                                     </div>
                                 </div>

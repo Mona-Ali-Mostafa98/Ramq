@@ -27,8 +27,7 @@
                 <div class="card card-default">
                     @include('admin.layouts.errors')
 
-                    <form method="POST" action="{{ route('admin.users.update', $user->id) }}"
-                        enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.users.update', $user->id) }}">
                         @csrf
                         @method ('put')
                         <div class="mb-3 m-2">

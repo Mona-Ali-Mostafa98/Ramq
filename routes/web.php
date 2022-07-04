@@ -7,6 +7,8 @@ use App\Http\Controllers\Front\LoginController;
 use App\Http\Controllers\Front\AboutUsController;
 use App\Http\Controllers\Front\ProductController;
 use App\Http\Controllers\Front\ContactUsController;
+use App\Http\Controllers\Front\FavoriteController;
+use App\Http\Controllers\Front\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,3 +52,12 @@ Route::put('/front/profile/{id}', [UserController::class, 'update'])->name('fron
 
 Route::get('/front/products', [ProductController::class, 'index'])->name('front.products.index');
 Route::get('/front/products/{product}',[ProductController::class, 'show'])->name('front.products.show');
+
+// Route::resource('/wishlist', 'FavoriteController', ['except' => ['create', 'edit', 'show', 'update']]);
+Route::get('/front/favorites',[FavoriteController::class, 'index'])->name('front.favorites')-> middleware('auth')->middleware('auth');
+Route::post('/front/favorite/store', [FavoriteController::class, 'store'])->name('front.favorites.store')->middleware('auth');
+Route::delete('/admin/favorites/{id}', [FavoriteController::class, 'destroy'])->name('front.favorites.destroy')->middleware('auth');
+
+// Route::get('/front/carts',[CartController::class, 'index'])->name('front.carts')-> middleware('auth')->middleware('auth');
+Route::post('/front/carts/store', [CartController::class, 'store'])->name('front.carts.store')->middleware('auth');
+Route::delete('/admin/carts/{id}', [CartController::class, 'destroy'])->name('front.carts.destroy')->middleware('auth');

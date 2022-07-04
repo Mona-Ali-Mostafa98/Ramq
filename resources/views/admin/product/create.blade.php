@@ -90,12 +90,12 @@
                         </div>
                         <div class="mb-3 m-2">
                             <label class="form-label">Design Information</label>
-                            <textarea name="information" class="form-control" rows="3"></textarea>
+                            <textarea name="information[]" class="form-control" rows="3"></textarea>
                         </div>
                         <div class="mb-3 m-2 ">
                             <label for="formFile" class="form-label mr-2">Image : </label>
                             <label for="InputImage" class="form-label  btn btn-secondary m-3">Upload Images</label>
-                            <input name="image[]" class="form-control mr-5 mt-2" type="file" id="InputImage"
+                            <inp+ut name="image[]" class="form-control mr-5 mt-2" type="file" id="InputImage"
                                 onchange="readImageURL(this)" multiple hidden>
                             <img id="image" src="#" alt="no new images uploaded"
                                 style="height: 100px; width: 150px;" />

@@ -3,7 +3,13 @@
     <div class="overlay-s"></div>
     <main class="main-content col-xs-12">
         <div class="breads col-xs-12">
-            <img src="images/hero.jpg" alt="">
+            @foreach ($settings as $setting)
+                @foreach ($setting->photes as $key => $value)
+                    <div class="item">
+                        <img src="{{ asset('images/settings/' . $value->photo) }}" alt="">
+                    </div>
+                @endforeach
+            @endforeach
             <div class="container">
                 <h3>حسابي</h3>
                 <ul>
@@ -19,16 +25,16 @@
                 <div class="prof-sidebar col-md-3 col-xs-12">
                     <ul>
                         <li>
-                            <a href="#">الملف الشخصي</a>
+                            <a href="{{ route('front.profile') }}">الملف الشخصي</a>
                         </li>
                         <li class="active">
-                            <a href="#">المفضلة</a>
+                            <a href="{{ route('front.favorites') }}">المفضلة</a>
                         </li>
                         <li>
                             <a href="#">الرقم السرى</a>
                         </li>
                         <li>
-                            <a href="#">تسجيل الخروج</a>
+                            <a href="{{ route('front.logout') }}">تسجيل الخروج</a>
                         </li>
                     </ul>
                 </div>
@@ -38,235 +44,54 @@
                     </div>
                     <div class="p-blocks col-xs-12">
                         <div class="row">
-                            <div class="block col-md-4 col-sm-6 col-xs-12">
-                                <div class="m-block">
-                                    <img src="images/hero2.jpg" alt="">
-                                    <div class="icap-o">
-                                        <a href="#" class="title">مضياف + مصعد</a>
-                                        <div class="overl">
-                                            <ul>
-                                                <li>
-                                                    <img src="images/ic1.png" alt="">
-                                                    عدد الادوار
-                                                    <span>2</span>
-                                                </li>
-                                                <li>
-                                                    <img src="images/ic2.png" alt="">
-                                                    عدد الغرف
-                                                    <span>2</span>
-                                                </li>
-                                                <li>
-                                                    <img src="images/ic3.png" alt="">
-                                                    مساحة الارض
-                                                    <span>500 م2</span>
-                                                </li>
-                                            </ul>
-                                            <p>تصميم: المهندس بدر الدامغ</p>
-                                        </div>
-                                        <h4>&rlm;8.118.6 ر.س</h4>
-                                        <a href="#" class="btn btn-border">استعرض</a>
-                                        <div class="i-actions">
-                                            <a href="#" class="fav">
-                                                <i class="la la-heart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="la la-share"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="block col-md-4 col-sm-6 col-xs-12">
-                                <div class="m-block">
-                                    <img src="images/hero2.jpg" alt="">
-                                    <div class="icap-o">
-                                        <a href="#" class="title">مضياف + مصعد</a>
-                                        <div class="overl">
-                                            <ul>
-                                                <li>
-                                                    <img src="images/ic1.png" alt="">
-                                                    عدد الادوار
-                                                    <span>2</span>
-                                                </li>
-                                                <li>
-                                                    <img src="images/ic2.png" alt="">
-                                                    عدد الغرف
-                                                    <span>2</span>
-                                                </li>
-                                                <li>
-                                                    <img src="images/ic3.png" alt="">
-                                                    مساحة الارض
-                                                    <span>500 م2</span>
-                                                </li>
-                                            </ul>
-                                            <p>تصميم: المهندس بدر الدامغ</p>
-                                        </div>
-                                        <h4>&rlm;8.118.6 ر.س</h4>
-                                        <a href="#" class="btn btn-border">استعرض</a>
-                                        <div class="i-actions">
-                                            <a href="#" class="fav">
-                                                <i class="la la-heart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="la la-share"></i>
-                                            </a>
+                            {{-- @if (!Auth::user()->wishlist->count()) --}}
+                            @foreach ($favorites as $favorite)
+                                <div class="block col-md-4 col-sm-6 col-xs-12">
+                                    <div class="m-block">
+                                        @foreach ($favorite->product->photes as $key => $value)
+                                            <img src="{{ asset('images/products/' . $value->photo) }}" alt="">
+                                        @endforeach
+                                        <div class="icap-o">
+
+                                            <a href="#" class="title">{{ $favorite->product->title }}</a>
+                                            <div class="overl">
+                                                <ul>
+                                                    <li>
+                                                        <img src="{{ asset('front/images/ic1.png') }}" alt="">
+                                                        عدد الادوار
+                                                        <span>{{ $favorite->product->number_of_floors }}</span>
+                                                    </li>
+                                                    <li>
+                                                        <img src="{{ asset('front/images/ic2.png') }}" alt="">
+                                                        عدد الغرف
+                                                        <span>{{ $favorite->product->number_of_rooms }}</span>
+                                                    </li>
+                                                    <li>
+                                                        <img src="{{ asset('front/images/ic3.png') }}" alt="">
+                                                        مساحة الارض
+                                                        <span>{{ $favorite->Land_area }} م2</span>
+                                                    </li>
+                                                </ul>
+                                                <p>تصميم: {{ $favorite->product->designed_by }}</p>
+                                            </div>
+                                            <h4>‏{{ $favorite->product->price }} ر.س</h4>
+                                            <a href="#" class="btn btn-border">استعرض</a>
+                                            <div class="i-actions">
+                                                <a href="#" class="fav">
+                                                    <i class="la la-heart"></i>
+                                                </a>
+                                                <a href="#">
+                                                    <i class="la la-share"></i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="block col-md-4 col-sm-6 col-xs-12">
-                                <div class="m-block">
-                                    <img src="images/hero2.jpg" alt="">
-                                    <div class="icap-o">
-                                        <a href="#" class="title">مضياف + مصعد</a>
-                                        <div class="overl">
-                                            <ul>
-                                                <li>
-                                                    <img src="images/ic1.png" alt="">
-                                                    عدد الادوار
-                                                    <span>2</span>
-                                                </li>
-                                                <li>
-                                                    <img src="images/ic2.png" alt="">
-                                                    عدد الغرف
-                                                    <span>2</span>
-                                                </li>
-                                                <li>
-                                                    <img src="images/ic3.png" alt="">
-                                                    مساحة الارض
-                                                    <span>500 م2</span>
-                                                </li>
-                                            </ul>
-                                            <p>تصميم: المهندس بدر الدامغ</p>
-                                        </div>
-                                        <h4>&rlm;8.118.6 ر.س</h4>
-                                        <a href="#" class="btn btn-border">استعرض</a>
-                                        <div class="i-actions">
-                                            <a href="#" class="fav">
-                                                <i class="la la-heart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="la la-share"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="block col-md-4 col-sm-6 col-xs-12">
-                                <div class="m-block">
-                                    <img src="images/hero2.jpg" alt="">
-                                    <div class="icap-o">
-                                        <a href="#" class="title">مضياف + مصعد</a>
-                                        <div class="overl">
-                                            <ul>
-                                                <li>
-                                                    <img src="images/ic1.png" alt="">
-                                                    عدد الادوار
-                                                    <span>2</span>
-                                                </li>
-                                                <li>
-                                                    <img src="images/ic2.png" alt="">
-                                                    عدد الغرف
-                                                    <span>2</span>
-                                                </li>
-                                                <li>
-                                                    <img src="images/ic3.png" alt="">
-                                                    مساحة الارض
-                                                    <span>500 م2</span>
-                                                </li>
-                                            </ul>
-                                            <p>تصميم: المهندس بدر الدامغ</p>
-                                        </div>
-                                        <h4>&rlm;8.118.6 ر.س</h4>
-                                        <a href="#" class="btn btn-border">استعرض</a>
-                                        <div class="i-actions">
-                                            <a href="#" class="fav">
-                                                <i class="la la-heart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="la la-share"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="block col-md-4 col-sm-6 col-xs-12">
-                                <div class="m-block">
-                                    <img src="images/hero2.jpg" alt="">
-                                    <div class="icap-o">
-                                        <a href="#" class="title">مضياف + مصعد</a>
-                                        <div class="overl">
-                                            <ul>
-                                                <li>
-                                                    <img src="images/ic1.png" alt="">
-                                                    عدد الادوار
-                                                    <span>2</span>
-                                                </li>
-                                                <li>
-                                                    <img src="images/ic2.png" alt="">
-                                                    عدد الغرف
-                                                    <span>2</span>
-                                                </li>
-                                                <li>
-                                                    <img src="images/ic3.png" alt="">
-                                                    مساحة الارض
-                                                    <span>500 م2</span>
-                                                </li>
-                                            </ul>
-                                            <p>تصميم: المهندس بدر الدامغ</p>
-                                        </div>
-                                        <h4>&rlm;8.118.6 ر.س</h4>
-                                        <a href="#" class="btn btn-border">استعرض</a>
-                                        <div class="i-actions">
-                                            <a href="#" class="fav">
-                                                <i class="la la-heart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="la la-share"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="block col-md-4 col-sm-6 col-xs-12">
-                                <div class="m-block">
-                                    <img src="images/hero2.jpg" alt="">
-                                    <div class="icap-o">
-                                        <a href="#" class="title">مضياف + مصعد</a>
-                                        <div class="overl">
-                                            <ul>
-                                                <li>
-                                                    <img src="images/ic1.png" alt="">
-                                                    عدد الادوار
-                                                    <span>2</span>
-                                                </li>
-                                                <li>
-                                                    <img src="images/ic2.png" alt="">
-                                                    عدد الغرف
-                                                    <span>2</span>
-                                                </li>
-                                                <li>
-                                                    <img src="images/ic3.png" alt="">
-                                                    مساحة الارض
-                                                    <span>500 م2</span>
-                                                </li>
-                                            </ul>
-                                            <p>تصميم: المهندس بدر الدامغ</p>
-                                        </div>
-                                        <h4>&rlm;8.118.6 ر.س</h4>
-                                        <a href="#" class="btn btn-border">استعرض</a>
-                                        <div class="i-actions">
-                                            <a href="#" class="fav">
-                                                <i class="la la-heart"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="la la-share"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+                            {{-- @endif --}}
+
                         </div>
+
                     </div>
                 </div>
             </div>
