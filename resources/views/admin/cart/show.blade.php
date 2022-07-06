@@ -61,12 +61,12 @@
                                 </div>
                                 <div class="card-body">
                                     <strong class="card-title mr-2">City :</strong>
-                                    <span class="card-text"> {{ $cart->city_id }}</span>
+                                    <span class="card-text"> {{ $cart->city->name }}</span>
                                 </div>
 
                                 <div class="card-body">
                                     <strong class="card-title mr-2">State :</strong>
-                                    <span class="card-text"> {{ $cart->region_id }}</span>
+                                    <span class="card-text"> {{ $cart->region->name }}</span>
                                 </div>
                             </div>
                         @endforeach

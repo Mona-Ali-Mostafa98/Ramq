@@ -32,13 +32,13 @@ class Cart extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function cities()
+    public function city()
     {
-    return $this->hasMany(City::class);
+    return $this->belongsTo(City::class);
     }
 
-    public function regions()
+    public function region()
     {
-    return $this->hasMany(Region::class);
+    return $this->belongsTo(Region::class);
     }
  }

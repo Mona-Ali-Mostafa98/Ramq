@@ -15,8 +15,8 @@ class CartController extends Controller
 //                         $city= City::all();
 // dd($city);
       $user = Auth::user();
-      $carts = Cart::where("user_id", $user->id)->orderby('id', 'desc')->get();
-
+      $carts = Cart::with('city','region')->where("user_id", $user->id)->orderby('id', 'desc')->get();
+// dd($carts);
       return view('admin.cart.show',[
         'user' => $user ,
         'carts' => $carts ,
