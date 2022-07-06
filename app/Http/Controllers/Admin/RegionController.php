@@ -28,7 +28,7 @@ class RegionController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => ['required','string', 'max:255'],
+            'name' => ['required','string', 'max:255' ,'unique:regions,name'],
             'city_id' => 'required',
         ]);
         Region::create($data);

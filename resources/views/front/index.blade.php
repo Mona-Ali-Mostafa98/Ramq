@@ -10,7 +10,7 @@
                         <div class="i-cap">
                             <h3>{{ $slidbar->title }}</h3>
                             <p> {{ $slidbar->description }}</p>
-                            <a href="#" class="btn btn-border">اطلب الان</a>
+                            <a href="{{ route('front.products.index') }}" class="btn btn-border">اطلب الان</a>
                         </div>
                     </div>
                 @endforeach
@@ -55,8 +55,8 @@
                         <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"> {{ $setting->description }}
                         </p>
 
-                        <a href="#" class="btn" data-aos="fade-up" data-aos-duration="1000"
-                            data-aos-delay="600">تعرف
+                        <a href="{{ route('front.about-us.index') }}" class="btn" data-aos="fade-up"
+                            data-aos-duration="1000" data-aos-delay="600">تعرف
                             علينا</a>
                     @endforeach
                 </div>
@@ -84,7 +84,7 @@
                                         <a href="#">
                                             <i class="la la-share"></i>
                                         </a>
-                                        {{-- <form action="{{ route('front.favorites.store') }}" id="contact_form"
+                                        <form action="{{ route('front.favorites.store') }}" id="contact_form"
                                             method="POST">
                                             @csrf
                                             <input name="user_id" type="text" value="{{ Auth::user()->id }}" hidden />
@@ -92,7 +92,7 @@
                                             <button type="submit" class="fav">
                                                 <i class="la la-heart"></i>
                                             </button>
-                                        </form> --}}
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="i-data">
@@ -117,9 +117,9 @@
                                         </ul>
                                     </div>
                                     <p class="desc">Design by: {{ $product->designed_by }}</p>
-                                    <a href="#" class="btn">استعرض التصميم</a>
+                                    <a href="{{ route('front.products.show', $product->id) }}" class="btn">استعرض
+                                        التصميم</a>
                                 </div>
-
                             </div>
                         </div>
                     @endforeach
@@ -187,7 +187,7 @@
                                             <a href="#">
                                                 <i class="la la-share"></i>
                                             </a>
-                                            {{-- <form action="{{ route('front.favorites.store') }}" id="contact_form"
+                                            <form action="{{ route('front.favorites.store') }}" id="contact_form"
                                                 method="post">
                                                 {{ csrf_field() }}
                                                 <input name="user_id" type="text" value="{{ Auth::user()->id }}"
@@ -197,7 +197,7 @@
                                                 <button type="submit" class="fav">
                                                     <i class="la la-heart"></i>
                                                 </button>
-                                            </form> --}}
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -212,22 +212,15 @@
         <div class="counters col-xs-12">
             <div class="container">
                 <div class="co-inner" style="background-image: url({{ asset('front/images/hero.jpg') }});">
-                    {{-- @foreach ($statistic as $statistic) --}}
-                    <div class="block col-md-3 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-duration="1000"
-                        data-aos-delay="200">
-                        <div class="inner">
-                            <span class="counter"> {{ $products_count }}</span>
-                            <h4>Products</h4>
+                    @foreach ($statistics as $statistic)
+                        <div class="block col-md-3 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-duration="1000"
+                            data-aos-delay="200">
+                            <div class="inner">
+                                <span class="counter"> {{ $statistic->counter }}</span>
+                                <h4>{{ $statistic->title }}</h4>
+                            </div>
                         </div>
-                    </div>
-                    <div class="block col-md-3 col-sm-6 col-xs-12" data-aos="fade-up" data-aos-duration="1000"
-                        data-aos-delay="200">
-                        <div class="inner">
-                            <span class="counter"> {{ $users_count }}</span>
-                            <h4>Users</h4>
-                        </div>
-                    </div>
-                    {{-- @endforeach --}}
+                    @endforeach
                 </div>
             </div>
         </div>

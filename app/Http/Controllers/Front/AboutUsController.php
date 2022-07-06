@@ -8,6 +8,7 @@ use App\Models\Partner;
 use App\Models\PhoneOfSetting;
 use App\Models\PhotoOfSetting;
 use App\Models\Setting;
+use App\Models\SocialLink;
 use App\Models\Statistic;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,7 @@ class AboutUsController extends Controller
         $settingPhones = PhoneOfSetting :: all();
         $partners = Partner :: all();
         $features= Feature::all();
+        $socials = SocialLink :: all();
 
         return view('front.about-us', [
             'settings' => $settings ,
@@ -29,6 +31,7 @@ class AboutUsController extends Controller
             'settingPhones' => $settingPhones ,
             'features' => $features ,
             'partners' => $partners ,
+            'socials' => $socials ,
 
         ]);
     }

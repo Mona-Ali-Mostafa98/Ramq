@@ -12,9 +12,9 @@
             <h3>من نحن</h3>
             <ul>
                 <li>
-                    <a href="{{ route('front.index') }}">الرئيسية</a>
+                    <a href="{{ route('front.index') }}">Home</a>
                 </li>
-                <li>من نحن</li>
+                <li>About Us</li>
             </ul>
         </div>
     </div>
@@ -39,7 +39,7 @@
                     <div class="ab-data col-md-6 col-xs-12">
                         @foreach ($settings as $setting)
                             <div class="g-head col-xs-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                                <h3>اهلا بكم فى <b>{{ $setting->title }}</b></h3>
+                                <h3>Welcome to <b>{{ $setting->title }}</b></h3>
                             </div>
                             <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                                 {{ $setting->description }}
@@ -61,7 +61,7 @@
         <div class="why-us col-xs-12">
             <div class="container">
                 <div class="g-head col-xs-12">
-                    <h3>لماذا نحن</h3>
+                    <h3>Why Us</h3>
                 </div>
                 <div class="g-body col-xs-12">
                     <div class="row">

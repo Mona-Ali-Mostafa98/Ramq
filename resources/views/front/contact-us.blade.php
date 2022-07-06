@@ -9,12 +9,12 @@
             @endforeach
         @endforeach
         <div class="container">
-            <h3>تواصل معنا</h3>
+            <h3> Contact Us</h3>
             <ul>
                 <li>
-                    <a href="{{ route('front.index') }}">الرئيسية</a>
+                    <a href="{{ route('front.index') }}">Home</a>
                 </li>
-                <li>تواصل معنا</li>
+                <li>Contact Us</li>
             </ul>
         </div>
     </div>
@@ -22,11 +22,11 @@
         <div class="container">
             <div class="conto-form col-md-8 col-xs-12">
                 <div class="cop-head col-xs-12">
-                    <h4>اترك رسالتك</h4>
-                    <p>ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص
+                    <h4> Leave Your Message.</h4>
+                    {{-- <p>ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص
                         العربى أن يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه التصميم
                         فيظهر بشكل لا يليق.
-                    </p>
+                    </p> --}}
                 </div>
                 <div class="cop-body col-xs-12">
                     @include('admin.layouts.errors')
@@ -35,22 +35,22 @@
                         <form method="POST" action="{{ route('front.contact-us.store') }}">
                             @csrf
                             <div class="form-group col-md-6 col-xs-12">
-                                <input name="full_name" type="text" class="form-control" placeholder="اسم الكريم">
+                                <input name="full_name" type="text" class="form-control" placeholder="Enter your name">
                             </div>
                             <div class="form-group col-md-6 col-xs-12">
-                                <input name="email" type="email" class="form-control" placeholder="البريد الالكترونى">
-                            </div>
-                            <div class="form-group col-md-12 col-xs-12">
-                                <input name="phone" type="phone" class="form-control" placeholder="عنوان الرساله">
+                                <input name="email" type="email" class="form-control" placeholder="Enter your email">
                             </div>
                             <div class="form-group col-md-6 col-xs-12">
-                                <input name="subject" type="text" class="form-control" placeholder="الموضوع">
+                                <input name="phone" type="phone" class="form-control" placeholder="Enter your phone">
+                            </div>
+                            <div class="form-group col-md-6 col-xs-12">
+                                <input name="subject" type="text" class="form-control" placeholder="Enter your subject">
                             </div>
                             <div class="form-group col-md-12 col-xs-12">
-                                <textarea name="message" class="form-control" placeholder="اكتب رسالتك هنا"></textarea>
+                                <textarea name="message" class="form-control" placeholder="Enter your message"></textarea>
                             </div>
                             <div class="form-group col-md-12 col-xs-12">
-                                <button type="submit" class="btn">ارسال</button>
+                                <button type="submit" class="btn">Send Message</button>
                             </div>
                         </form>
 
@@ -60,7 +60,7 @@
             </div>
             <div class="conto-data col-md-4 col-xs-12">
                 <div class="cop-head col-xs-12">
-                    <h4>الموقع</h4>
+                    <h4>Location</h4>
                 </div>
                 <ul>
                     @foreach ($settings as $setting)
@@ -83,7 +83,7 @@
                     @endforeach
                 </ul>
                 <div class="cop-head col-xs-12">
-                    <h4>الخريطة</h4>
+                    <h4>Map</h4>
                 </div>
                 <div class="cop-map">
                     <iframe

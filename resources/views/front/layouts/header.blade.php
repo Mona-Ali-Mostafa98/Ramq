@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 
 <head>
-    <title>رمق</title>
+    <title>Ramq</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta charset="utf-8" />
@@ -20,8 +20,8 @@
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link href="{{ asset('front/css/style.css') }}" rel="stylesheet" />
     <link href="{{ asset('front/css/bootstrap-rtl.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('front/css/style-res.css') }}" rel="stylesheet" />
-    <!-- <link href="{{ asset('front/css/style-en.css') }}" rel="stylesheet"> -->
+    {{-- <link href="{{ asset('front/css/style-res.css') }}" rel="stylesheet" /> --}}
+    <link href="{{ asset('front/css/style-en.css') }}" rel="stylesheet">
     <!-- lavicons -->
     <link rel="shortcut icon" href="{{ asset('front/images/logo.png') }}" />
 </head>
@@ -36,13 +36,11 @@
         <header class="main-head col-xs-12">
             <div class="container">
                 <div class="logo">
-                    <a href="#">
+                    <a href="{{ route('front.index') }}">
                         @foreach ($settings as $setting)
-                            @foreach ($setting->photes as $key => $value)
-                                <div class="item">
-                                    <img src="{{ asset('images/settings/' . $value->photo) }}" alt="">
-                                </div>
-                            @endforeach
+                            <div class="item">
+                                <img src="{{ asset('images/settings/' . $setting->logo) }}" alt="">
+                            </div>
                         @endforeach
                     </a>
                 </div>
@@ -52,16 +50,16 @@
                     </button>
                     <ul>
                         <li class="active">
-                            <a href="{{ route('front.index') }}">الرئيسية</a>
+                            <a href="{{ route('front.index') }}">Home</a>
                         </li>
                         <li>
-                            <a href="{{ route('front.about-us.index') }}">من نحن</a>
+                            <a href="{{ route('front.about-us.index') }}">About Us</a>
                         </li>
                         <li>
-                            <a href="{{ route('front.products.index') }}">متجر التصاميم</a>
+                            <a href="{{ route('front.products.index') }}">Products Shop</a>
                         </li>
                         <li>
-                            <a href="{{ route('front.contact-us.create') }}">تواصل معنا</a>
+                            <a href="{{ route('front.contact-us.create') }}">Contact Us</a>
                         </li>
                     </ul>
                 </div>
@@ -76,17 +74,17 @@
                             </a>
                             <ul class="sub-menu">
                                 <li>
-                                    <a href="{{ route('front.profile') }}">الملف الشخصي</a>
+                                    <a href="{{ route('front.profile') }}">Profile</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('front.logout') }}">تسجيل خروج</a>
+                                    <a href="{{ route('front.logout') }}">Sign Out</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
-                    <a href="javascript:void(0)" class="op-menu">
+                    {{-- <a href="javascript:void(0)" class="op-menu">
                         <i class="la la-bars"></i>
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </header>

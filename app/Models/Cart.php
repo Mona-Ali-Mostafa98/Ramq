@@ -16,6 +16,9 @@ class Cart extends Model
         'email',
         'phone',
         'career',
+        'city_id',
+        'region_id',
+        'discount_id',
         'copy_of_instrument_or_survey_report',
     ];
 

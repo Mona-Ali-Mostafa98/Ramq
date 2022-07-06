@@ -56,8 +56,7 @@
                     <div class="edit-form col-xs-12" style="display: none;">
                         <div class="row">
                             @include('admin.layouts.errors')
-
-                            <form method="POST" action="{{ route('front.users.update', $user->id) }}">
+                            <form method="POST" action="{{ route('front.profile.update', $user->id) }}" enctype="multipart/form-data">
                                 @csrf
                                 @method ('put')
                                 <div class="form-group col-md-12 col-xs-12">

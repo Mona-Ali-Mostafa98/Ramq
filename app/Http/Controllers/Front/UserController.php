@@ -7,6 +7,7 @@ use App\Models\Partner;
 use App\Models\PhoneOfSetting;
 use App\Models\PhotoOfSetting;
 use App\Models\Setting;
+use App\Models\SocialLink;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Password;
@@ -20,6 +21,8 @@ class UserController extends Controller
         $settingPhotes = PhotoOfSetting :: all();
         $settingPhones = PhoneOfSetting :: all();
         $partners = Partner :: all();
+        $socials = SocialLink :: all();
+
 
         return view('front.profile', [
             'users' => $users ,
@@ -27,6 +30,7 @@ class UserController extends Controller
             'settingPhotoes' => $settingPhotes ,
             'settingPhones' => $settingPhones ,
             'partners' => $partners ,
+            'socials' => $socials ,
 
         ]);
     }
@@ -50,24 +54,16 @@ class UserController extends Controller
         $user = User::create($data);
         auth()->login($user); //to regester and make login
 
-        return redirect()->route('front.profile');
+        return redirect()->route('front.index');
 
     }
 
-    // public function edit($userId)
-    // {
-    //     $user = User::find($userId);
-    //     return view('admin.social.edit', [
-    //         'user' => $user,
-    //     ]);
-    // }
-
-    public function update(Request $request,user $user)
+    public function update(Request $request,User $user)
     {
         $request->validate([
             'name' => ['required','string', 'max:255'],
             'email' => ['required','string' , 'email'],
-            'phone' => 'required|numeric',
+            'phone' => ['required' , 'numeric'],
             'city' => ['required'],
             'state' => ['required' ],
             // 'password' => ['required' ],
@@ -75,6 +71,8 @@ class UserController extends Controller
         ]);
         $data = $request->all();
         $user->update($data);
+
         return redirect()->route('front.profile');
     }
+
 }

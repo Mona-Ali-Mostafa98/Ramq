@@ -12,6 +12,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Setting;
 use App\Models\Slider;
+use App\Models\SocialLink;
 use App\Models\Statistic;
 use App\Models\User;
 
@@ -30,10 +31,11 @@ class HomeController extends Controller
         $productInformations = DesignInformation :: all();
 
         $partners = Partner :: all();
-        $statistic = Statistic::all();
+        $socials = SocialLink :: all();
+        $statistics = Statistic::all();
 
-        $products_count=Product::count();
-        $users_count=User::count();
+        // $products_count=Product::count();
+        // $users_count=User::count();
 
         return view('front.index', [
             'slidbars' => $slidbars ,
@@ -46,11 +48,13 @@ class HomeController extends Controller
             'productPhotes' => $productPhotes ,
             'productInformations' => $productInformations ,
 
-            'statistic' => $statistic ,
+            'statistics' => $statistics ,
             'partners' => $partners ,
+            'socials' => $socials ,
 
-            'products_count' => $products_count ,
-            'users_count' => $users_count ,
+
+            // 'products_count' => $products_count ,
+            // 'users_count' => $users_count ,
 
         ]);
 

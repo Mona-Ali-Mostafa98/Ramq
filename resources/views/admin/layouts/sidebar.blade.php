@@ -23,6 +23,13 @@
                       </a>
                   </li>
                   <li class="nav-item">
+                      <a href="{{ route('admin.admins.index') }}" class="nav-link">
+                          <p>
+                              Admin
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
                       <a href="{{ route('admin.sliders.index') }}" class="nav-link">
                           <p>
                               Slider

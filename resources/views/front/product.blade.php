@@ -95,12 +95,13 @@
                         <h4>معلومات المخطط</h4>
                         <div class="s-inner">
                             <ul>
-                                <li>
-                                    <i class="la la-check"></i>
-                                    @foreach ($product->informations as $value)
+                                @foreach ($product->informations as $value)
+                                    <li>
+                                        <i class="la la-check"></i>
                                         <span class="card-text"> {{ $value->information }}</span> <br>
-                                    @endforeach
-                                </li>
+                                    </li>
+                                @endforeach
+
                             </ul>
                         </div>
                     </div>
@@ -110,9 +111,10 @@
                             <ul>
                                 <li>
                                     <i class="la la-check"></i>
-                                    الرسوم الهيكلية
+                                    {{ $product->design_details }}
                                 </li>
-                                <li>
+
+                                {{-- <li>
                                     <i class="la la-check"></i>
                                     الرسوم المعمارية
                                 </li>
@@ -127,7 +129,7 @@
                                 <li>
                                     <i class="la la-check"></i>
                                     رسوم الواجهة الامامية
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
 
@@ -151,10 +153,9 @@
                             <ul>
                                 <li>
                                     <i class="la la-check"></i>
-                                    يتم إرسال رابط تحميل المخططات مباشرة
-                                    .إلى الإيميل بعد الدفع مباشرة بدون انتظار
+                                    {{ $product->notes }}
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <i class="la la-check"></i>
                                     المخططات الأوتوكاد مفتوحة للتعديل
 
@@ -168,7 +169,7 @@
                                     <i class="la la-check"></i>
                                     - المخططات المرفقة فيها جميع الثلاثة أدوار في حال البناء مستقبلا .
 
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
 
@@ -249,12 +250,12 @@
                     </div>
                 </div>
                 <div class="dim-btn col-xs-12">
-                    <form action="{{ route('front.carts.create') }}" id="contact_form" method="post">
-                        @csrf
-                        <input name="user_id" type="text" value="{{ Auth::user()->id }}" hidden />
-                        <input name="product_id" type="text" value="{{ $product->id }}" hidden />
-                        <button type="submit" class="btn">شراء المخطط</button>
-                    </form>
+                    {{-- <form action="{{ route('front.carts.create') }}" id="contact_form" method="get"> --}}
+                    {{-- @csrf --}}
+                    {{-- <input name="user_id" type="text" value="{{ Auth::user()->id }}" hidden />
+                        <input name="product_id" type="text" value="{{ $product->id }}" hidden /> --}}
+                    <a href="{{ url('front/carts/create?product=' . $product->id) }}" class="btn">شراء المخطط</a>
+                    {{-- </form> --}}
                 </div>
             </div>
         </div>

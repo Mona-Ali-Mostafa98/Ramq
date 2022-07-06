@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\ContactUs;
 use App\Models\Partner;
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Password;
 
 
 class AdminController extends Controller
@@ -42,20 +43,73 @@ class AdminController extends Controller
 
         }
 
-
     public function index()
     {
-        $products_count = Product:: count();
-        $users_count = User:: count();
-        $partners_count = Partner:: count();
-        $contacts_count = ContactUs:: count();
-        // $last_users = User::orderedBy('id')->take(5)->get();
-        return view('admin.index' , [
-            'products_count' => $products_count,
-            'users_count' => $users_count,
-            'partners_count' => $partners_count,
-            'contacts_count' => $contacts_count,
-            // 'last_users' => $last_users,
+
+        $admins =Admin:: all();
+        return view('admin.admin.index', [
+            'admins' => $admins,
+
         ]);
     }
+
+    public function create()
+    {
+        return view('admin.admin.create');
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name' => ['required','string', 'max:255'],
+            'email' => ['required','string' , 'email'],
+            'password' => ['required' , Password::min(8)],
+
+        ]);
+        Admin::create($data);
+
+        return redirect()->route('admin.admins.index');
+
+    }
+
+    public function show($adminId)
+    {
+        $admin = Admin::findOrFail($adminId);
+        return view('admin.admin.show',[
+            'admin'=>$admin
+        ]);
+    }
+    public function edit($adminId)
+    {
+        $admin = Admin::find($adminId);
+        return view('admin.admin.edit', [
+            'admin' => $admin,
+        ]);
+    }
+
+    public function update(Request $request,Admin $admin)
+    {
+        $request->validate([
+            'name' => ['required','string', 'max:255'],
+            'email' => ['required','string' , 'email'],
+            // 'password' => ['required' ],
+
+        ]);
+        $data = $request->all();
+        $admin->update($data);
+        // dd($admin->update($data));
+
+        return redirect()->route('admin.admins.index');
+    }
+
+    public function destroy($adminId)
+    {
+        $admin = Admin::find($adminId);
+        $admin -> delete();
+        return redirect()->route('admin.admins.index');
+
+    }
+
+
+
 }

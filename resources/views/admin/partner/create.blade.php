@@ -32,7 +32,11 @@
                         @csrf
                         <div class="mb-3 m-2">
                             <label for="formFile" class="form-label">Partner Image</label>
-                            <input name="image" class="form-control" type="file" id="formFile">
+                            <label for="InputImage" class="form-label  btn btn-secondary m-3">Upload Image</label>
+                            <input name="image" class="form-control mr-5 mt-2" type="file" id="InputImage"
+                                accept="image/png, image/gif, image/jpeg" onchange="readImageURL(this)" hidden>
+                            <img id="image" src="#" alt="no new images uploaded"
+                                style="height: 100px; width: 150px;" />
                         </div>
 
                         <div class="mb-3 m-2">
@@ -57,3 +61,16 @@
         </section>
     </div>
 @endsection
+<script>
+    function readImageURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#image').attr('src', e.target.result).width(150).height(100);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

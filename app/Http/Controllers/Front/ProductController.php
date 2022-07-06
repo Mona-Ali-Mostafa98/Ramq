@@ -8,6 +8,7 @@ use App\Models\PhoneOfSetting;
 use App\Models\PhotoOfSetting;
 use App\Models\Product;
 use App\Models\Setting;
+use App\Models\SocialLink;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -20,12 +21,16 @@ class ProductController extends Controller
         $settingPhotes = PhotoOfSetting :: all();
         $settingPhones = PhoneOfSetting :: all();
         $partners = Partner :: all();
+        $socials = SocialLink :: all();
+
         return view('front.products', [
             'products' => $products ,
             'settings' => $settings ,
             'settingPhotoes' => $settingPhotes ,
             'settingPhones' => $settingPhones ,
             'partners' => $partners ,
+            'socials' => $socials ,
+
         ]);
     }
 
@@ -36,12 +41,16 @@ class ProductController extends Controller
         $settingPhotes = PhotoOfSetting :: all();
         $settingPhones = PhoneOfSetting :: all();
         $partners = Partner :: all();
+        $socials = SocialLink :: all();
+
         return view('front.product',[
             'product'=>$product,
             'settings' => $settings ,
             'settingPhotoes' => $settingPhotes ,
             'settingPhones' => $settingPhones ,
             'partners' => $partners ,
+            'socials' => $socials ,
+
         ]);
     }
 }

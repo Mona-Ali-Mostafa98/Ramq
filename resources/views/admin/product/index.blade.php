@@ -52,7 +52,7 @@
                                             <th scope="col">#</th>
                                             <th scope="col">Title</th>
                                             {{-- <th scope="col" style="width:20%">Description</th> --}}
-                                            <th scope="col">Images</th>
+                                            {{-- <th scope="col">Images</th> --}}
                                             {{-- <th scope="col">No Of Floors</th> --}}
                                             {{-- <th scope="col">No Of Rooms</th> --}}
                                             {{-- <th scope="col">Land Area</th> --}}
@@ -67,16 +67,16 @@
                                                 <th scope="row">{{ $product->id }}</th>
                                                 <td>{{ $product->title }}</td>
                                                 {{-- <td>{{ $product->description }}</td> --}}
-                                                <td>
+                                                {{-- <td>
                                                     @foreach ($product->photes as $key => $value)
                                                         <img src="{{ asset('images/products/' . $value->photo) }}"
                                                             style="height: 100px; width: 150px;" alt="">
                                                     @endforeach
-                                                </td>
-                                                {{-- <td>{{ $product->number_of_floors }}</td>
-                                                <td>{{ $product->number_of_rooms }}</td>
-                                                <td>{{ $product->Land_area }}</td>
-                                                <td>{{ $product->price }}</td> --}}
+                                                </td> --}}
+                                                {{-- <td>{{ $product->number_of_floors }}</td> --}}
+                                                {{-- <td>{{ $product->number_of_rooms }}</td> --}}
+                                                {{-- <td>{{ $product->Land_area }}</td> --}}
+                                                <td>{{ $product->price }}</td>
                                                 <td>{{ $product->designed_by }}</td>
                                                 <td class="row">
                                                     <a href="{{ route('admin.products.show', $product->id) }}"

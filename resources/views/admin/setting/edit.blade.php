@@ -87,17 +87,10 @@
                         </div>
                         <div class="mb-3 m-2 ">
                             <label for="formFile" class="form-label mr-2">Image : </label>
+
                             @foreach ($setting->photes as $value)
                                 <img src="{{ asset('images/settings/' . $value->photo) }}"
                                     style="height: 100px; width: 150px;">
-
-                                {{-- <form class="col-2" method="post"
-                                    action="{{ route('admin.settings.deleteImage', $value->id) }}">
-                                    @csrf
-                                    @method ('delete')
-                                    <button type="submit" class="btn btn-danger "
-                                        onclick="return confirm('Are you sure you to delete this image')">Delete</button>
-                                </form> --}}
                             @endforeach
                             <label for="InputImage" class="form-label  btn btn-secondary m-3">Upload Another Images</label>
                             <input name="image[]" class="form-control mr-5 mt-2" type="file" id="InputImage"
@@ -111,7 +104,7 @@
                                 src="{{ asset('images/settings/' . $setting->video) }}" type="video/mp4" width="150px"
                                 height="100px"></video>
                             <label for="InputVideo" class="form-label  btn btn-secondary m-3">Upload Another
-                                Images</label>
+                                Video</label>
 
                             <input name="video" onchange="readVideoURL(this)" accept=" video/*" class="form-control"
                                 type="file" id="InputVideo" hidden>

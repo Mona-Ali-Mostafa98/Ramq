@@ -50,9 +50,9 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">partner_name</th>
-                                            <th scope="col">partner_photo</th>
-                                            <th scope="col">status</th>
+                                            <th scope="col">Partner Name</th>
+                                            <th scope="col">Partner Photo</th>
+                                            <th scope="col">Status</th>
                                             <th scope="col">Actions</th>
                                         </tr>
                                     </thead>

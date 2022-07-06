@@ -12,6 +12,7 @@ use App\Models\PhotoOfSetting;
 use App\Models\Product;
 use App\Models\Region;
 use App\Models\Setting;
+use App\Models\SocialLink;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,27 +33,53 @@ class CartController extends Controller
       $partners = Partner :: all();
       $features= Feature::all();
       $products = Product:: all();
+              $socials = SocialLink :: all();
+
 
       return view('front.cart',[
         'user' => $user ,
         'carts' => $carts ,
-
         'settings' => $settings ,
         'settingPhotoes' => $settingPhotes ,
         'settingPhones' => $settingPhones ,
         'features' => $features ,
         'partners' => $partners ,
         'products' => $products ,
+        'socials' => $socials ,
 
     ]);
     }
     public function create()
     {
         $cities = City::all();
+        // dd($cities);
         $regions = Region::all();
+        // dd($regions);
+        $user = Auth::user();
+    //   $carts = Cart::where("user_id", $user->id)->orderby('id', 'desc')->paginate(10);
+
+      $settings = Setting ::with('phones','photes')->get();
+      $settingPhotes = PhotoOfSetting :: all();
+      $settingPhones = PhoneOfSetting :: all();
+      $partners = Partner :: all();
+      $features= Feature::all();
+      $product = Product:: findOrFail(request('product'));
+        $socials = SocialLink :: all();
+    //   dd($products);
+
         return view('front.cart' , [
             'cities' => $cities ,
             'regions' => $regions ,
+            'user' => $user ,
+        // 'carts' => $carts ,
+
+        'settings' => $settings ,
+        'settingPhotoes' => $settingPhotes ,
+        'settingPhones' => $settingPhones ,
+        'features' => $features ,
+        'partners' => $partners ,
+        'product' => $product ,
+        'socials' => $socials ,
 
         ]);
 
@@ -73,6 +100,9 @@ class CartController extends Controller
         'phone' => ['required', 'numeric'],
         'career'=>'required',
         'copy_of_instrument_or_survey_report' => 'required',
+        'policy' => 'accepted',
+
+
         ));
 
         $status=Cart::where('user_id',Auth::user()->id)
@@ -86,25 +116,10 @@ class CartController extends Controller
         }
         else
         {
-            $cart = new Cart();
-
-            $cart->user_id = $request->user_id;
-            $cart->product_id = $request->product_id;
-            $cart->save();
-
+            $cart = Cart::create($request->except('_token'));
             return  redirect()->route('front.index')->with('flash_message',
                             'Item, '. $cart->product->title.' Added to your wishlist.');
         }
     }
-
-    public function destroy($id)
-        {
-            $cart = Cart::findOrFail($id);
-            $cart->delete();
-
-            return redirect()->route('front.index')
-                ->with('flash_message',
-                'Item successfully deleted');
-        }
 
 }

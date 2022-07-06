@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\PhoneOfSetting;
 use App\Models\PhotoOfSetting;
 use App\Http\Controllers\Controller;
+use App\Models\SocialLink;
 use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
@@ -23,8 +24,6 @@ class FavoriteController extends Controller
     {
       $user = Auth::user();
     //   $user = optional(Auth::user())->id;
-
-
       $favorites = Favorite::where("user_id", $user->id)->orderby('id', 'desc')->paginate(10);
 
       $settings = Setting ::with('phones','photes')->get();
@@ -33,6 +32,7 @@ class FavoriteController extends Controller
       $partners = Partner :: all();
       $features= Feature::all();
       $products = Product:: all();
+        $socials = SocialLink :: all();
 
       return view('front.favorite',[
         'user' => $user ,
@@ -43,6 +43,7 @@ class FavoriteController extends Controller
         'features' => $features ,
         'partners' => $partners ,
         'products' => $products ,
+        'socials' => $socials ,
 
     ]);
 

@@ -31,19 +31,19 @@
                     <form method="POST" action="{{ route('admin.features.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3 m-2">
-                            <label class="form-label">Title</label>
+                            <label class="form-label">Title :</label>
                             <input name="title" type="text" class="form-control">
                         </div>
 
                         <div class="mb-3 m-2">
-                            <label class="form-label">Description</label>
+                            <label class="form-label">Description :</label>
                             <textarea name="description" class="form-control" rows="3"></textarea>
                         </div>
 
                         <div class="col mb-3">
                             <!-- select -->
                             <div class="form-group">
-                                <label>Status</label>
+                                <label>Status : </label>
                                 <select name="status" class="form-control">
                                     <option value="show" selected>Show</option>
                                     <option value="hide">Hide</option>
@@ -52,9 +52,13 @@
                         </div>
 
                         <div class="mb-3 m-2">
-                            <label for="formFile" class="form-label">Upload Image</label>
-                            <input name="image" class="form-control" accept="image/png, image/gif, image/jpeg"
-                                type="file" id="formFile">
+                            <label for="formFile" class="form-label">Feature Image : </label>
+                            <label for="InputImage" class="form-label  btn btn-secondary m-3">Upload Image</label>
+                            <input name="image" class="form-control mr-5 mt-2" type="file"
+                                accept="image/png, image/gif, image/jpeg" id="InputImage" onchange="readImageURL(this)"
+                                hidden>
+                            <img id="image" src="#" alt="no new images uploaded"
+                                style="height: 100px; width: 150px;" />
                         </div>
 
                         <div class="text-center">
@@ -66,3 +70,16 @@
         </section>
     </div>
 @endsection
+<script>
+    function readImageURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#image').attr('src', e.target.result).width(150).height(100);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

@@ -32,15 +32,15 @@
                         @csrf
                         <div class="mb-3 m-2">
                             <label class="form-label">Title</label>
-                            <input name="title" type="text" class="form-control" placeholder="Enter Your Name">
+                            <input name="title" type="text" class="form-control">
                         </div>
                         <div class="mb-3 m-2">
                             <label class="form-label">Discount Code</label>
-                            <input name="discount_code" type="text" class="form-control" placeholder="Enter Your Name">
+                            <input name="discount_code" type="text" class="form-control">
                         </div>
                         <div class="mb-3 m-2">
                             <label class="form-label">Price</label>
-                            <input name="price" type="text" class="form-control" placeholder="Enter Your Name">
+                            <input name="price" type="text" class="form-control">
                         </div>
 
                         <div class="form-group mb-3 m-2">

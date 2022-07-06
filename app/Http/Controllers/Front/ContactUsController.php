@@ -8,6 +8,7 @@ use App\Models\Partner;
 use App\Models\PhoneOfSetting;
 use App\Models\PhotoOfSetting;
 use App\Models\Setting;
+use App\Models\SocialLink;
 use Illuminate\Http\Request;
 
 class ContactUsController extends Controller
@@ -19,12 +20,15 @@ class ContactUsController extends Controller
         $settingPhotes = PhotoOfSetting :: all();
         $settingPhones = PhoneOfSetting :: all();
         $partners = Partner :: all();
+                $socials = SocialLink :: all();
+
         return view('front.contact-us',[
             'contacts' => $contacts,
             'settings' => $settings ,
             'settingPhotoes' => $settingPhotes ,
             'settingPhones' => $settingPhones ,
             'partners' => $partners ,
+            'socials' => $socials ,
 
         ]);
     }

@@ -28,36 +28,38 @@ use App\Http\Controllers\Front\CartController;
 Route::get('/front/login', [LoginController::class, 'login'])->name('front.login');
 Route::post('/front/dologin', [LoginController::class, 'dologin'])->name('front.dologin');
 
-Route::get('/front/logout', [LoginController::class, 'logout'])->name('front.logout')-> middleware('auth');
-// Route::get('/', [LoginController::class, 'index'])->name('front.index')-> middleware('auth');
 
 
-Route::get('/', [HomeController::class, 'index'])->name('front.index');
+Route::namespace('Front')->prefix('/front')->group(function(){
+    Route::middleware('auth')->group(function(){
 
-// Route::get('/front/contact-us', function () {
-//     return view('front.contact-us');
-// });
+        Route::get('/logout', [LoginController::class, 'logout'])->name('front.logout');
 
-Route::get('/front/contact-us/create',[ContactUsController::class, 'create'])->name('front.contact-us.create')-> middleware('auth');
-Route::post('/front/contact-us',[ContactUsController::class, 'store'])->name('front.contact-us.store')-> middleware('auth');
+        Route::get('/index', [HomeController::class, 'index'])->name('front.index');
 
-Route::get('/front/about-us',[AboutUsController::class, 'index'])->name('front.about-us.index')-> middleware('auth');
+        Route::get('/contact-us/create',[ContactUsController::class, 'create'])->name('front.contact-us.create');
+        Route::post('/contact-us',[ContactUsController::class, 'store'])->name('front.contact-us.store');
 
-Route::get('/front/profile',[UserController::class, 'index'])->name('front.profile')-> middleware('auth');
-// Route::get('/front/profile', [UserController::class, 'create'])->name('front.user.create');
-// Route::post('/front/profile', [UserController::class, 'store'])->name('front.users.store');
-Route::post('/front/register', [UserController::class, 'store'])->name('front.users.store');
+        Route::get('/about-us',[AboutUsController::class, 'index'])->name('front.about-us.index');
 
-Route::put('/front/profile/{id}', [UserController::class, 'update'])->name('front.users.update')-> middleware('auth');
+        Route::get('/profile',[UserController::class, 'index'])->name('front.profile');
+        Route::post('/register', [UserController::class, 'store'])->name('front.users.store');
+        Route::put('/profile/{user}', [UserController::class, 'update'])->name('front.profile.update');
 
-Route::get('/front/products', [ProductController::class, 'index'])->name('front.products.index');
-Route::get('/front/products/{product}',[ProductController::class, 'show'])->name('front.products.show');
+        Route::get('/password{user}/edit', [UserController::class, 'edit'])->name('front.password.edit');
+        Route::put('/password/{user}', [UserController::class, 'update'])->name('front.password.update');
 
-// Route::resource('/wishlist', 'FavoriteController', ['except' => ['create', 'edit', 'show', 'update']]);
-Route::get('/front/favorites',[FavoriteController::class, 'index'])->name('front.favorites')-> middleware('auth')->middleware('auth');
-Route::post('/front/favorite/store', [FavoriteController::class, 'store'])->name('front.favorites.store')->middleware('auth');
-Route::delete('/admin/favorites/{id}', [FavoriteController::class, 'destroy'])->name('front.favorites.destroy')->middleware('auth');
+        Route::get('/products', [ProductController::class, 'index'])->name('front.products.index');
+        Route::get('/products/{product}',[ProductController::class, 'show'])->name('front.products.show');
 
-// Route::get('/front/carts',[CartController::class, 'index'])->name('front.carts')-> middleware('auth')->middleware('auth');
-Route::post('/front/carts/store', [CartController::class, 'store'])->name('front.carts.store')->middleware('auth');
-Route::delete('/admin/carts/{id}', [CartController::class, 'destroy'])->name('front.carts.destroy')->middleware('auth');
+        Route::get('/favorites',[FavoriteController::class, 'index'])->name('front.favorites');
+        Route::post('/favorite/store', [FavoriteController::class, 'store'])->name('front.favorites.store');
+        Route::delete('/favorites/{id}', [FavoriteController::class, 'destroy'])->name('front.favorites.destroy');
+
+        Route::get('/carts/create',[CartController::class, 'create'])->name('front.carts.create');
+        Route::post('/carts', [CartController::class, 'store'])->name('front.carts.store');
+        // Route::delete('/carts/{cart}', [CartController::class, 'destroy'])->name('front.carts.destroy');
+
+
+    });
+});

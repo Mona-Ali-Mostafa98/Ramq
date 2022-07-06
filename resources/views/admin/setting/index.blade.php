@@ -50,7 +50,7 @@
                                             <th scope="col">logo</th>
                                             <th scope="col">Title</th>
                                             {{-- <th scope="col">Description</th> --}}
-                                            <th scope="col">Image</th>
+                                            {{-- <th scope="col">Image</th> --}}
                                             {{-- <th scope="col">Video</th> --}}
                                             {{-- <th scope="col">Phone</th> --}}
                                             {{-- <th scope="col">Email</th> --}}
@@ -66,22 +66,21 @@
                                                 <td><img src="{{ asset('images/settings/' . $setting->logo) }}"
                                                         style="height: 100px; width: 150px;" alt=""></td>
                                                 <td>{{ $setting->title }}</td>
-                                                {{-- <td>{{ $setting->description }}</td> --}}
-                                                <td>
+                                                {{-- <td>
                                                     @foreach ($setting->photes as $key => $value)
                                                         <img src="{{ asset('images/settings/' . $value->photo) }}"
                                                             style="height: 100px; width: 150px;" alt="">
                                                     @endforeach
-                                                </td>
+                                                </td> --}}
 
                                                 {{-- <td><video src="{{ asset('images/settings/' . $setting->video) }}"
                                                         style="height: 100px; width: 150px;"></video> </td> --}}
-                                                <td>
+                                                {{-- <td>
                                                     @foreach ($setting->phones as $key => $value)
                                                         {{ $value->phone }} |
                                                     @endforeach
-                                                </td>
-                                                <td>{{ $setting->email }}</td>
+                                                </td> --}}
+                                                {{-- <td>{{ $setting->email }}</td> --}}
                                                 {{-- <td>{{ $setting->commercial_registration_no }}</td> --}}
                                                 {{-- <td>{{ $setting->tax_number }}</td> --}}
                                                 <td class="row">

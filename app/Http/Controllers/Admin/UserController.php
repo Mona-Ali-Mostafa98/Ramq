@@ -3,17 +3,29 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Favorite;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
+    public function __construct() {
+        $this->middleware(['auth']);
+    }
+
     public function index()
     {
+        $user = Auth::user();
+
         $users = User:: all();
+      $favorites = Favorite::where("user_id", $user->id)->orderby('id', 'desc')->paginate(10);
         return view('admin.user.index', [
-            'users' => $users
+            'users' => $users,
+            'favorites' => $favorites
+
         ]);
     }
 
@@ -62,7 +74,7 @@ class UserController extends Controller
             'phone' => 'required|numeric',
             'city' => ['required'],
             'state' => ['required' ],
-            'password' => ['required' ],
+            // 'password' => ['required' ],
 
         ]);
         $data = $request->all();

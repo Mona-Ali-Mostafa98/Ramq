@@ -19,34 +19,34 @@
         <div class="f-top col-xs-12">
             <div class="row">
                 <div class="f-item col-md-4 col-xs-12">
-                    <h4>نبذة عنا</h4>
+                    <h4>About Us</h4>
                     @foreach ($settings as $setting)
                         <p> {{ $setting->description }}</p>
                     @endforeach
                 </div>
                 <div class="f-item col-md-2 col-xs-12">
-                    <h4>اهم الروابط</h4>
+                    <h4>Most Important Links</h4>
                     <ul class="sitemap">
                         <li>
-                            <a href="{{ route('front.index') }}">الرئيسية</a>
+                            <a href="{{ route('front.index') }}">Home</a>
                         </li>
                         <li>
-                            <a href="{{ route('front.about-us.index') }}">من نحن</a>
+                            <a href="{{ route('front.about-us.index') }}">About Us</a>
                         </li>
                         <li>
-                            <a href="#">متجر التصاميم</a>
+                            <a href="{{ route('front.products.index') }}">Products Shop</a>
                         </li>
                         <li>
-                            <a href="{{ route('front.contact-us.create') }}">تواصل معنا</a>
+                            <a href="{{ route('front.contact-us.create') }}">Contact Us</a>
                         </li>
                     </ul>
                 </div>
                 <div class="f-item col-md-3 col-xs-12">
-                    <h4>تواصل معنا</h4>
+                    <h4>Contact Us</h4>
                     <ul class="siteinfo">
                         <li>
                             <i class="la la-crosshairs"></i>
-                            العنوان
+                            Address
                             @foreach ($settings as $setting)
                                 <p>
                                     <a href="#">‏ {{ $setting->address }}</a>
@@ -56,44 +56,52 @@
                         </li>
                         <li>
                             <i class="la la-envelope"></i>
-                            البريد الالكترونى
+                            Email
                             @foreach ($settings as $setting)
                                 <p>
-                                    <a href="mailto:companymaimail@gmail.com">{{ $setting->email }}</a>
+                                    <a href="mailto:{{ $setting->email }}">{{ $setting->email }}</a>
                                 </p>
                             @endforeach
                         </li>
                         <li>
                             <i class="las la-crosshairs"></i>
-                            الهاتف
+                            Phone
                             <p>
                                 @foreach ($settingPhones as $setting)
-                                    <a href="tel:0548596523">{{ $setting->phone }}</a> -
+                                    <a href="{{ $setting->phone }}">{{ $setting->phone }}</a> -
                                 @endforeach
                             </p>
                         </li>
                     </ul>
                 </div>
                 <div class="f-item col-md-3 col-xs-12">
-                    <h4>التواصل الاجتماعى</h4>
+                    <h4>Social links</h4>
                     <div class="soclia">
-                        <a href="#" class="twitter">
-                            <i class="la la-twitter"></i>
-                        </a>
-                        <a href="#" class="youtube">
-                            <i class="la la-youtube"></i>
-                        </a>
-                        <a href="#" class="instagram">
-                            <i class="la la-instagram"></i>
-                        </a>
-                        <a href="#" class="facebook">
-                            <i class="la la-facebook"></i>
-                        </a>
+                        @foreach ($socials as $social)
+                            <a href="{{ $social->website_url }}"
+                                @if ($social->website_name == 'Twitter') class="twitter" @endif
+                                @if ($social->website_name == 'Youtube') class="youtube" @endif
+                                @if ($social->website_name == 'Instagram') class="instagram" @endif
+                                @if ($social->website_name == 'Facebook') class="facebook" @endif>
+                                @if ($social->website_name == 'Twitter')
+                                    <i class="la la-twitter"></i>
+                                @endif
+                                @if ($social->website_name == 'Youtube')
+                                    <i class="la la-youtube"></i>
+                                @endif
+                                @if ($social->website_name == 'Instagram')
+                                    <i class="la la-instagram"></i>
+                                @endif
+                                @if ($social->website_name == 'Facebook')
+                                    <i class="la la-facebook"></i>
+                                @endif
+                            </a>
+                        @endforeach
                     </div>
                     <ul class="siteinfo">
                         <li>
                             <i class="la la-file-invoice"></i>
-                            رقم السجل التجارى
+                            Commercial Register Number
                             @foreach ($settings as $setting)
                                 <p>{{ $setting->commercial_registration_no }}</p>
                             @endforeach
@@ -101,7 +109,7 @@
                         </li>
                         <li>
                             <i class="la la-file-invoice"></i>
-                            الرقم الضريبى
+                            Tax Number
                             @foreach ($settings as $setting)
                                 <p>{{ $setting->tax_number }}</p>
                             @endforeach
@@ -111,8 +119,8 @@
             </div>
         </div>
         <div class="f-bottom col-xs-12">
-            <p>جميع الحقوق محفوظة لـمنصة رمق</p>
-            <a href="#">
+            <p>All Rights Reserved For Ramaq Platform</p>
+            <a href="{{ route('front.index') }}">
                 <img src="images/dev.svg" alt="">
             </a>
         </div>
@@ -143,7 +151,7 @@
                     <form action="#" method="GET">
                         <div class="form-group">
                             <input type="search" class="form-control" placeholder="اكتب بحثك هنا">
-                            <button type="submit" class="btn">بحث</button>
+                            <button type="submit" class="btn">Search</button>
                         </div>
                     </form>
                 </div>
