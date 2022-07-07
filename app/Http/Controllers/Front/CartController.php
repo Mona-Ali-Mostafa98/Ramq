@@ -87,6 +87,16 @@ class CartController extends Controller
 
     }
 
+	public function getRegion(Request $request){
+		$city_id = $request->post('city_id');
+		$regions=Region::where('city_id',$city_id)->orderBy('name','asc')->get();
+		$html='<option value="">Select Region</option>';
+		foreach($regions as $region){
+			$html.='<option value="'.$region->id.'">'.$region->name.'</option>';
+		}
+		echo $html;
+	}
+
 
     public function store(Request $request)
     {

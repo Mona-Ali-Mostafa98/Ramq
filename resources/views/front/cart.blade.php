@@ -168,3 +168,28 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 @endsection
+
+
+
+@push('js')
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        jQuery(document).ready(function() {
+            jQuery('#city').change(function() {
+                let city_id = jQuery(this).val();
+                // alert(city_id);
+                jQuery.ajax({
+                    url: '/front/getRegion',
+                    type: 'post',
+                    data: 'city_id=' + city_id + '&_token={{ csrf_token() }}',
+                    success: function(result) {
+                        jQuery('#region').html(result)
+                    }
+                });
+                alert(result)
+            });
+
+        });
+    </script>
+@endpush
