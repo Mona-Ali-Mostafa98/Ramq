@@ -20,7 +20,7 @@
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link href="{{ asset('front/css/style.css') }}" rel="stylesheet" />
     <link href="{{ asset('front/css/bootstrap-rtl.min.css') }}" rel="stylesheet" />
-    {{-- <link href="{{ asset('front/css/style-res.css') }}" rel="stylesheet" /> --}}
+    <link href="{{ asset('front/css/style-res.css') }}" rel="stylesheet" />
     <link href="{{ asset('front/css/style-en.css') }}" rel="stylesheet">
     <!-- lavicons -->
     <link rel="shortcut icon" href="{{ asset('front/images/logo.png') }}" />

@@ -15,6 +15,7 @@ use App\Models\Setting;
 use App\Models\SocialLink;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
 {
@@ -33,7 +34,7 @@ class CartController extends Controller
       $partners = Partner :: all();
       $features= Feature::all();
       $products = Product:: all();
-              $socials = SocialLink :: all();
+      $socials = SocialLink :: all();
 
 
       return view('front.cart',[
@@ -47,13 +48,14 @@ class CartController extends Controller
         'products' => $products ,
         'socials' => $socials ,
 
-    ]);
+        ]);
     }
+
     public function create()
     {
         $cities = City::all();
         // dd($cities);
-        $regions = Region::all();
+        // $regions = Region::all();
         // dd($regions);
         $user = Auth::user();
     //   $carts = Cart::where("user_id", $user->id)->orderby('id', 'desc')->paginate(10);
@@ -64,12 +66,12 @@ class CartController extends Controller
       $partners = Partner :: all();
       $features= Feature::all();
       $product = Product:: findOrFail(request('product'));
-        $socials = SocialLink :: all();
+      $socials = SocialLink :: all();
     //   dd($products);
 
         return view('front.cart' , [
             'cities' => $cities ,
-            'regions' => $regions ,
+            // 'regions' => $regions ,
             'user' => $user ,
         // 'carts' => $carts ,
 

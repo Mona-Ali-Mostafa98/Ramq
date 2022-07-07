@@ -9,12 +9,12 @@
             @endforeach
         @endforeach
         <div class="container">
-            <h3>كلمة المرور الجديدة</h3>
+            <h3>New Password</h3>
             <ul>
                 <li>
                     <a href="{{ route('front.index') }}">الرئيسية</a>
                 </li>
-                <li>كلمة المرور الجديدة</li>
+                <li>New Password</li>
             </ul>
         </div>
     </div>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-body col-xs-12">
                     <div class="form-group col-md-6 col-xs-12">
-                        <h4>كلمة المرور الجديدة</h4>
+                        <h4>New Password</h4>
                         <input type="password" class="form-control" id="pass_1">
                         <button type="button" class="show-pass" toggle="#pass_1">
                             <i class="la la-eye-slash"></i>

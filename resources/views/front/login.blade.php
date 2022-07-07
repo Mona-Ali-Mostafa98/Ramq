@@ -9,12 +9,12 @@
             @endforeach
         @endforeach
         <div class="container">
-            <h3>تسجيل دخول</h3>
+            <h3>Login</h3>
             <ul>
                 <li>
-                    <a href="{{ route('front.index') }}">الرئيسية</a>
+                    <a href="{{ route('front.index') }}">Home</a>
                 </li>
-                <li>تسجيل دخول</li>
+                <li>Login</li>
             </ul>
         </div>
     </div>
@@ -23,10 +23,10 @@
             <div class="log-form col-xs-12">
                 <ul class="nav-tabs col-xs-12">
                     <li class="active">
-                        <a href="#" data-toggle="tab" data-target="#t1">تسجيل الدخول</a>
+                        <a href="#" data-toggle="tab" data-target="#t1">Login</a>
                     </li>
                     <li>
-                        <a href="#" data-toggle="tab" data-target="#t2">تسجيل جديد</a>
+                        <a href="#" data-toggle="tab" data-target="#t2">Register</a>
                     </li>
                 </ul>
                 <div class="tab-content col-xs-12">
@@ -34,31 +34,30 @@
                         <div class="row">
                             <form action="{{ route('front.dologin') }}" method="post">
                                 @csrf
-
                                 <div class="form-group col-md-6 col-xs-12">
-                                    <h4>البريد الالكترونى</h4>
-                                    <input name="email" type="email" class="form-control">
-                                </div>
-                                <div class="form-group col-md-6 col-xs-12">
-                                    <h4>كلمة المرور</h4>
+                                    <h4>Password</h4>
                                     <input name="password" type="password" class="form-control" id="pass">
                                     <button type="button" class="show-pass" toggle="#pass">
                                         <i class="la la-eye-slash"></i>
                                     </button>
                                 </div>
+                                <div class="form-group col-md-6 col-xs-12">
+                                    <h4>Email</h4>
+                                    <input name="email" type="email" class="form-control">
+                                </div>
                                 <div class="form-group rems col-xs-12">
                                     <div>
                                         <label>
                                             <input type="checkbox">
-                                            <span>تذكرني</span>
+                                            <span>Remember me</span>
                                         </label>
-                                        <a href="#" class="forget">نسيت كلمة المرور؟</a>
+                                        <a href="#" class="forget">Forget Password ?</a>
                                     </div>
                                 </div>
                                 <div class="form-group has-btn col-xs-12">
-                                    <button type="submit" class="btn">تسجيل الدخول</button>
+                                    <button type="submit" class="btn">Login</button>
                                     <p class="hint">
-                                        ليس لديك حساب بالفعل؟ <a href="#">تسجيل جديد</a>
+                                        Don't have account ? <a href="#">Create Account</a>
                                     </p>
                                 </div>
 
@@ -72,43 +71,41 @@
                             @csrf
                             <div class="row">
                                 <div class="form-group col-md-6 col-xs-12">
-                                    <h4> <i>*</i>الاسم الأول</h4>
+                                    <h4> <i>*</i>Name</h4>
                                     <input name="name" type="text" class="form-control">
                                 </div>
                                 <div class="form-group col-md-6 col-xs-12">
-                                    <h4>البريد الالكترونى</h4>
+                                    <h4>Email</h4>
                                     <input name="email" type="email" class="form-control">
                                 </div>
                                 <div class="form-group col-md-6 col-xs-12">
-                                    <h4>رقم الجوال</h4>
+                                    <h4>Mobile</h4>
                                     <input name="phone" type="text" class="form-control" id="phone">
                                 </div>
                                 <div class="form-group col-md-6 col-xs-12">
-                                    <h4> <i>*</i>كلمة السر </h4>
+                                    <h4> <i>*</i>Password </h4>
                                     <input name="password" type="password" class="form-control">
                                 </div>
                                 <div class="form-group col-md-6 col-xs-12">
-                                    <h4>المدينة</h4>
+                                    <h4>city</h4>
                                     <select name="city" class="form-control nice-select">
-                                        <option>Rayed</option>
-                                        <option>Gada </option>
-                                        <option>Maqa </option>
-                                        <option> Madena</option>
+                                        @foreach ($cities as $city)
+                                            <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6 col-xs-12">
-                                    <h4>الحى</h4>
+                                    <h4>Region</h4>
                                     <select name="state" class="form-control nice-select">
-                                        <option> no 1 </option>
-                                        <option> no 2 </option>
-                                        <option> no 3</option>
-                                        <option>no 4 </option>
+                                        @foreach ($regions as $region)
+                                            <option value="{{ $region->id }}">{{ $region->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group has-btn col-xs-12">
-                                    <button type="submit" class="btn">تسجيل جديد</button>
+                                    <button type="submit" class="btn">Register</button>
                                     <p class="hint">
-                                        هل لديك حساب بالفعل؟ <a href="#">تسجيل دخول</a>
+                                        You have an account ? <a href="#">Login</a>
                                     </p>
                                 </div>
                             </div>

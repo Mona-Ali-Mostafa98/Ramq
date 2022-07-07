@@ -160,6 +160,7 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 @yield('diffrence');
+
 <!-- Javascript Files -->
 <script src="{{ asset('front/js/jquery-2.2.2.min.js') }}"></script>
 <script src="{{ asset('front/js/bootstrap.min.js') }}"></script>
@@ -171,6 +172,7 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 <script src="{{ asset('front/js/jquery.counterup.min.js') }}"></script>
 <script src="{{ asset('front/js/script.js') }}"></script>
+@stack('js')
 </body>
 
 </html>

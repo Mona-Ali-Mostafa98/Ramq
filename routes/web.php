@@ -28,14 +28,12 @@ use App\Http\Controllers\Front\CartController;
 Route::get('/front/login', [LoginController::class, 'login'])->name('front.login');
 Route::post('/front/dologin', [LoginController::class, 'dologin'])->name('front.dologin');
 
-
+Route::get('/', [HomeController::class, 'index'])->name('front.index') ->middleware('auth');
 
 Route::namespace('Front')->prefix('/front')->group(function(){
-    Route::middleware('auth')->group(function(){
+        Route::middleware('auth')->group(function(){
 
         Route::get('/logout', [LoginController::class, 'logout'])->name('front.logout');
-
-        Route::get('/index', [HomeController::class, 'index'])->name('front.index');
 
         Route::get('/contact-us/create',[ContactUsController::class, 'create'])->name('front.contact-us.create');
         Route::post('/contact-us',[ContactUsController::class, 'store'])->name('front.contact-us.store');

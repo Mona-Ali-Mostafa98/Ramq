@@ -85,7 +85,7 @@ $(document).ready(function () {
         autoplayHoverPause: true,
         center: false,
         responsiveClass: true,
-        rtl: true,
+
         responsive: {
             0: {
                 items: 1
@@ -241,13 +241,13 @@ $(document).ready(function () {
             }
         }
     });
-    
-    
-    
+
+
+
       $(".edit-data").click(function () {
         $(".prev-form").hide();
         $(".edit-form").show();
-        
+
     });
 
 });

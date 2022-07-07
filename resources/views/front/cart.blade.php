@@ -57,8 +57,9 @@
                                 </div>
                                 <div class="form-group col-md-6 col-xs-12">
                                     <h4> City <i>*</i></h4>
-                                    <select name="city_id" class="form-control nice-select" required>
+                                    <select id="city" name="city_id" class="form-control nice-select" required>
                                         <label class="form-label">City</label>
+                                        <option value="">Select City</option>
                                         @foreach ($cities as $city)
                                             <option value="{{ $city->id }}">{{ $city->name }}</option>
                                         @endforeach
@@ -67,11 +68,9 @@
                                 </div>
                                 <div class="form-group col-md-6 col-xs-12">
                                     <h4> Region <i>*</i></h4>
-                                    <select name="region_id" class="form-control nice-select" required>
+                                    <select id="region" name="region_id" class="form-control nice-select" required>
                                         <label class="form-label">Region</label>
-                                        @foreach ($regions as $region)
-                                            <option value="{{ $region->id }}">{{ $region->name }}</option>
-                                        @endforeach
+                                        <option value="">Select Region</option>
                                     </select>
                                     <i class="la la-map-marker place-icon"></i>
                                 </div>
@@ -89,7 +88,7 @@
                                     </div>
                                 </div>
 
-                                {{-- <button type="button" data-dismiss="modal">اغلاق</button> --}}
+                                <button type="btn" data-dismiss="modal">اغلاق</button>
                             </div>
                         </div>
                     </div>
@@ -113,7 +112,7 @@
             </div>
             </form>
 
-            <div class="checkout-sidebar col-md-3 col-xs-12">
+            <div class="checkout-region_idebar col-md-3 col-xs-12">
                 <div class="s-widget col-xs-12">
                     <h4>Details Of The Design </h4>
                     <div class="s-inner">

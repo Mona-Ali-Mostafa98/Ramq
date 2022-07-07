@@ -113,23 +113,6 @@
                                     <i class="la la-check"></i>
                                     {{ $product->design_details }}
                                 </li>
-
-                                {{-- <li>
-                                    <i class="la la-check"></i>
-                                    الرسوم المعمارية
-                                </li>
-                                <li>
-                                    <i class="la la-check"></i>
-                                    رسوم الكهرباء
-                                </li>
-                                <li>
-                                    <i class="la la-check"></i>
-                                    الرسوم السمكرية
-                                </li>
-                                <li>
-                                    <i class="la la-check"></i>
-                                    رسوم الواجهة الامامية
-                                </li> --}}
                             </ul>
                         </div>
 
@@ -155,21 +138,6 @@
                                     <i class="la la-check"></i>
                                     {{ $product->notes }}
                                 </li>
-                                {{-- <li>
-                                    <i class="la la-check"></i>
-                                    المخططات الأوتوكاد مفتوحة للتعديل
-
-                                </li>
-                                <li>
-                                    <i class="la la-check"></i>
-                                    يتحمل الاستشاري والمقاول مسؤولية عمل القواعد المناسبة حسب تقرير التربة ومواءمة المخططات
-                                    حسب ظروف موقع المشروع
-                                </li>
-                                <li>
-                                    <i class="la la-check"></i>
-                                    - المخططات المرفقة فيها جميع الثلاثة أدوار في حال البناء مستقبلا .
-
-                                </li> --}}
                             </ul>
                         </div>
 
@@ -180,8 +148,8 @@
     </div>
     <div class="vid vid-inner col-xs-12">
         <div class="inner" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-            <img src="images/hero2.jpg" alt="">
-            <a href="#youtube_url" data-fancybox>
+            <img src="{{ asset('front/images/hero2.jpg') }}" alt="">
+            <a href="{{ asset('images/settings/' . $setting->video) }}" data-fancybox>
                 <i class="la la-play"></i>
             </a>
         </div>

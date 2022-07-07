@@ -11,12 +11,12 @@
                 @endforeach
             @endforeach
             <div class="container">
-                <h3>حسابي</h3>
+                <h3>My Profile</h3>
                 <ul>
                     <li>
-                        <a href="{{ route('front.index') }}">الرئيسية</a>
+                        <a href="{{ route('front.index') }}">Home</a>
                     </li>
-                    <li>المفضلة</li>
+                    <li>Favorites</li>
                 </ul>
             </div>
         </div>
@@ -25,22 +25,22 @@
                 <div class="prof-sidebar col-md-3 col-xs-12">
                     <ul>
                         <li>
-                            <a href="{{ route('front.profile') }}">الملف الشخصي</a>
+                            <a href="{{ route('front.profile') }}">My Profile</a>
                         </li>
                         <li class="active">
-                            <a href="{{ route('front.favorites') }}">المفضلة</a>
+                            <a href="{{ route('front.favorites') }}">Favorites</a>
                         </li>
                         <li>
-                            <a href="#">الرقم السرى</a>
+                            <a href="#">Password</a>
                         </li>
                         <li>
-                            <a href="{{ route('front.logout') }}">تسجيل الخروج</a>
+                            <a href="{{ route('front.logout') }}">Logout</a>
                         </li>
                     </ul>
                 </div>
                 <div class="prof-content col-md-9 col-xs-12">
                     <div class="p-head col-xs-12">
-                        <h4>المفضلة</h4>
+                        <h4>Favorites</h4>
                     </div>
                     <div class="p-blocks col-xs-12">
                         <div class="row">
@@ -58,24 +58,24 @@
                                                 <ul>
                                                     <li>
                                                         <img src="{{ asset('front/images/ic1.png') }}" alt="">
-                                                        عدد الادوار
+                                                        No Of Floors
                                                         <span>{{ $favorite->product->number_of_floors }}</span>
                                                     </li>
                                                     <li>
                                                         <img src="{{ asset('front/images/ic2.png') }}" alt="">
-                                                        عدد الغرف
+                                                        No of rooms
                                                         <span>{{ $favorite->product->number_of_rooms }}</span>
                                                     </li>
                                                     <li>
                                                         <img src="{{ asset('front/images/ic3.png') }}" alt="">
-                                                        مساحة الارض
+                                                        Land Area
                                                         <span>{{ $favorite->Land_area }} م2</span>
                                                     </li>
                                                 </ul>
-                                                <p>تصميم: {{ $favorite->product->designed_by }}</p>
+                                                <p>Designed By: {{ $favorite->product->designed_by }}</p>
                                             </div>
                                             <h4>‏{{ $favorite->product->price }} ر.س</h4>
-                                            <a href="#" class="btn btn-border">استعرض</a>
+                                            <a href="#" class="btn btn-border">Show</a>
                                             <div class="i-actions">
                                                 <a href="#" class="fav">
                                                     <i class="la la-heart"></i>
