@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="form-group col-md-6 col-xs-12">
                                     <h4>city</h4>
-                                    <select name="city" class="form-control nice-select">
+                                    <select id="city" name="city" class="form-control nice-select">
                                         @foreach ($cities as $city)
                                             <option value="{{ $city->id }}">{{ $city->name }}</option>
                                         @endforeach
@@ -96,10 +96,9 @@
                                 </div>
                                 <div class="form-group col-md-6 col-xs-12">
                                     <h4>Region</h4>
-                                    <select name="state" class="form-control nice-select">
-                                        @foreach ($regions as $region)
-                                            <option value="{{ $region->id }}">{{ $region->name }}</option>
-                                        @endforeach
+                                    <select id="region" name="state" class="form-control nice-select">
+                                        <label class="form-label">Region</label>
+                                        <option value="">Select Region</option>
                                     </select>
                                 </div>
                                 <div class="form-group has-btn col-xs-12">
@@ -116,3 +115,7 @@
         </div>
     </div>
 @endsection
+@push('js')
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+@endpush

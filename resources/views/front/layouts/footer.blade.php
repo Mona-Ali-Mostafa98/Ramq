@@ -173,6 +173,25 @@
 <script src="{{ asset('front/js/jquery.counterup.min.js') }}"></script>
 <script src="{{ asset('front/js/script.js') }}"></script>
 @stack('js')
+
+<script>
+    jQuery(document).ready(function() {
+        jQuery('#city').change(function() {
+            let city_id = jQuery(this).val();
+            // alert(city_id);
+            jQuery.ajax({
+                url: '/front/getRegion',
+                type: 'post',
+                data: 'city_id=' + city_id + '&_token={{ csrf_token() }}',
+                success: function(result) {
+                    jQuery('#region').html(result)
+                }
+            });
+            alert(result)
+        });
+
+    });
+</script>
 </body>
 
 </html>

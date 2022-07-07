@@ -58,6 +58,7 @@ Route::namespace('Front')->prefix('/front')->group(function(){
         Route::post('/carts', [CartController::class, 'store'])->name('front.carts.store');
         // Route::delete('/carts/{cart}', [CartController::class, 'destroy'])->name('front.carts.destroy');
         Route::post('/getRegion', [CartController::class,'getRegion']);
+        // Route::post('/getRegion', [UserController::class,'getRegion']);
 
 
     });

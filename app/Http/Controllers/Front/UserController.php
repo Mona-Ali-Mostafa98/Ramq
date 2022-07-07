@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Partner;
 use App\Models\PhoneOfSetting;
 use App\Models\PhotoOfSetting;
+use App\Models\Region;
 use App\Models\Setting;
 use App\Models\SocialLink;
 use App\Models\User;
